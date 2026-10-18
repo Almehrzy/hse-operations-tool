@@ -14,7 +14,13 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$toolRoot = Split-Path $PSScriptRoot -Parent
+# project folder: HSE_PROJECT_DIR, else the nearest folder up from here holding project.json, else the tool folder
+$toolRoot = $env:HSE_PROJECT_DIR
+if (-not ($toolRoot -and (Test-Path -LiteralPath (Join-Path $toolRoot 'project.json')))) {
+    $toolRoot = $null; $d = (Get-Location).Path
+    while ($d) { if (Test-Path -LiteralPath (Join-Path $d 'project.json')) { $toolRoot = $d; break }; $up = Split-Path $d -Parent; if (-not $up -or $up -eq $d) { break }; $d = $up }
+    if (-not $toolRoot) { $toolRoot = Split-Path $PSScriptRoot -Parent }
+}
 $cfg = Get-Content -LiteralPath (Join-Path $toolRoot "project.json") -Raw -Encoding UTF8 | ConvertFrom-Json
 if (-not $Register) { $Register = $cfg.svr.register }
 if (-not $BackupDir) { $BackupDir = Join-Path $toolRoot "backups" }
