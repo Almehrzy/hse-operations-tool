@@ -143,7 +143,10 @@ def main():
     last_day = (WEEK_START - 1) % 7
     ref = dt.date.fromisoformat(a.week) if a.week else today - dt.timedelta(days=((today.weekday() - last_day) % 7) or 7)   # last full week
     start, end, year, month, idx = week_of(ref)
-    tpl = a.template or max(glob.glob(os.path.join(tcfg["folder"], "**", "*TREND ANALYSIS*.xlsx"), recursive=True), key=os.path.getmtime)
+    found = glob.glob(os.path.join(tcfg["folder"], "**", "*TREND ANALYSIS*.xlsx"), recursive=True)
+    if not a.template and not found:
+        sys.exit(f"No trend workbook (*TREND ANALYSIS*.xlsx) under {tcfg['folder']}: copy the house workbook there, or pass --template.")
+    tpl = a.template or max(found, key=os.path.getmtime)
     out_dir = a.out_dir or month_folder(tcfg["folder"], year, month)
     out = os.path.join(out_dir, f"{end + dt.timedelta(days=1):%d-%m-%Y}{tcfg['file_suffix']}")   # issued the day after the week
     if os.path.exists(out):
