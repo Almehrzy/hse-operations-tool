@@ -1,0 +1,49 @@
+HSE Operations Tool – Licence and Copyright Notice
+==================================================
+
+Copyright (c) 2026 Khaled Almehrzy (khaled.almehrzy@gmail.com). All rights reserved.
+
+The HSE Operations Tool – its web page (site-observations.html), scripts, configuration files, document
+templates as adapted for the tool, instructions (CLAUDE.md) and all later versions – was conceived,
+designed and developed by Khaled Almehrzy, starting in October 2026. It is proprietary software.
+
+1. Ownership. All rights in the tool, including copyright, belong to Khaled Almehrzy.
+
+2. Licence to use. The author allows the persons he names to use the tool for the project(s) he names,
+   for as long as he allows it. This permission is personal to the author's decision; it can be limited
+   or withdrawn by him at any time.
+
+3. Not allowed without the author's written permission:
+   - copying the tool, its code or any part of it, except backups made for the author;
+   - modifying it, or publishing, sharing or deploying a copy or a changed version of it;
+   - using it, or a copy of it, on another project or for another company;
+   - selling, licensing or giving it to anyone else;
+   - removing or changing this notice or the author's name in the tool.
+
+4. Data. The records entered in the tool (observations, permits, incidents and so on) belong to the
+   project and company that entered them; this notice does not claim them. Company forms used as
+   templates remain the property of their owners.
+
+5. The tool is provided as it is. Documents it produces must be reviewed by the responsible person
+   before they are issued.
+
+Contact: Khaled Almehrzy – khaled.almehrzy@gmail.com
+
+------------------------------------------------------------------
+
+أداة HSE Operations Tool – إشعار حقوق النشر والترخيص
+
+جميع الحقوق محفوظة © 2026 لخالد المحرزي (Khaled Almehrzy)، khaled.almehrzy@gmail.com
+
+أداة HSE Operations Tool، بصفحتها وسكربتاتها وملفات إعدادها ونماذجها المعدّة لها وتعليماتها وكل إصداراتها
+اللاحقة، من فكرة وتصميم وتطوير خالد المحرزي (Khaled Almehrzy)، بدءاً من أكتوبر 2026، وهي برنامج مملوك له.
+
+١. الملكية: جميع الحقوق في الأداة، ومنها حق المؤلف، لخالد المحرزي.
+٢. الترخيص بالاستخدام: يأذن المؤلف للأشخاص الذين يحددهم باستخدام الأداة في المشروع أو المشاريع التي يحددها،
+   طوال المدة التي يأذن بها، وله أن يقيّد هذا الإذن أو يسحبه في أي وقت.
+٣. لا يجوز دون إذن كتابي من المؤلف: نسخ الأداة أو أي جزء منها (عدا النسخ الاحتياطية للمؤلف)، أو تعديلها، أو نشر
+   نسخة منها أو نسخة معدّلة، أو استخدامها في مشروع آخر أو لشركة أخرى، أو بيعها أو إعطاؤها لغيره، أو حذف هذا
+   الإشعار أو اسم المؤلف منها.
+٤. البيانات: السجلات المدخلة في الأداة ملك للمشروع والشركة التي أدخلتها، ونماذج الشركات المستخدمة قوالبَ تبقى ملكاً
+   لأصحابها.
+٥. تُقدَّم الأداة كما هي، وتجب مراجعة كل مستند تنتجه من الشخص المسؤول قبل إصداره.

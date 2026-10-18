@@ -1,0 +1,4 @@
+# Python libraries used by scripts\ (install: python -m pip install -r requirements.txt)
+openpyxl    # registers, trend/weekly workbooks, training index, checklists
+Pillow      # photo handling in Word/Excel outputs
+PyPDF2      # reading consultant PDFs and extracting their photos

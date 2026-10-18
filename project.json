@@ -1,0 +1,74 @@
+{
+ "project_name": "The Avenues Khobar – External Roads Improvement Works",
+ "contract": "WP-03",
+ "package": "WP.03",
+ "contractor": "ACTC (WP.03)",
+ "contractor_short": "ACTC",
+ "consultant": "PACE Supervision Consultant",
+ "consultant_short": "PACE",
+ "pmc": "JLL",
+ "client": "Shomoul",
+ "page_url": "https://claude.ai/artifact/Vx7wxo42BMRJ75aYKBKBJs",
+ "svr": {
+  "folder": "D:\\Claude Projects\\Quick Access\\12. Safety Violation",
+  "register": "D:\\Claude Projects\\Quick Access\\12. Safety Violation\\SVR LOG REGISTER 2024.xlsx",
+  "register_sheet": "SVN",
+  "penalty_matrix": "D:\\Claude Projects\\Quick Access\\12. Safety Violation\\AVK01 - WP03 External Road Improvement Works KSA - Penalty Matrix - 2024.xlsx"
+ },
+ "svn": {
+  "folder": "D:\\Claude Projects\\Quick Access\\06. PACE SVN",
+  "extra_folders": ["D:\\Claude HSE\\101\\03. FAIZAN HSE FILES\\SVNs & NCR\\2026"],
+  "register": "D:\\Claude Projects\\Quick Access\\06. PACE SVN\\AVK01-WP.03-HSE-REG-018 PACE SVN Register.xlsx",
+  "number_prefix": "SVN-AVK-WP.03-",
+  "number_pattern": "WP[.\\-]?03[.\\-]0*(\\d{1,4})(?!\\d)",
+  "skip_words": ["NCR", "SOR", "LTR", "MACES", "MESMACK"],
+  "folder_prefix": "SVN-AVK01-WP.03-",
+  "template": "templates\\SVN closeout template (from 056).docx",
+  "template_number": "SVN-AVK-WP.03-056"
+ },
+ "ncr": {
+  "folder": "D:\\Claude Projects\\Quick Access\\06.1 PACE NCR",
+  "register": "D:\\Claude Projects\\Quick Access\\06.1 PACE NCR\\AVK01-WP.03-HSE-REG-019 PACE NCR Register.xlsx"
+ },
+ "sor": {
+  "folder": "D:\\Claude Projects\\Quick Access\\16. SOR PACE",
+  "register": "D:\\Claude Projects\\Quick Access\\16. SOR PACE\\AVK01-WP.03-HSE-REG-020 PACE SOR Register.xlsx",
+  "template": "templates\\SOR closeout template (from 019).xlsx"
+ },
+ "trend": {
+  "folder": "D:\\Claude Projects\\Quick Access\\Weekly Report",
+  "file_suffix": "-SOR-TREND ANALYSIS-WP-03.xlsx",
+  "utc_offset_hours": 3,
+  "week_starts": "Saturday",
+  "month_by": "Wednesday"
+ },
+ "incidents": {
+  "folder": "D:\\Claude Projects\\Quick Access\\15. Incident & Accident Reports PACE & JLL",
+  "ref_prefix": "AVK01-ACTC-WP.03-HSE-",
+  "codes": {"nearmiss": "NM", "fac": "FAC", "mtc": "MTC", "rwc": "RWC", "lti": "LTI", "ftl": "FAT", "damage": "PD", "mvi": "PD", "fire": "FIRE", "env": "ENV", "illness": "ILL", "dangerous": "DO"},
+  "type_text": {"nearmiss": "Near Miss", "fac": "First Aid Injury", "mtc": "Medical Treatment Case", "rwc": "Restricted Work Case", "lti": "Lost Time Injury", "ftl": "Fatality", "damage": "Property/Equipment Damage", "mvi": "Motor Vehicle Incident", "fire": "Fire", "env": "Environmental Incident", "illness": "Occupational Illness", "dangerous": "Dangerous Occurrence"},
+  "register_type": {"nearmiss": "NM", "fac": "FAC", "mtc": "MTC", "rwc": "RWC", "lti": "LTI", "ftl": "Fatality", "damage": "Property Damage", "mvi": "Traffic", "fire": "Fire", "env": "Environmental", "illness": "Illness", "dangerous": "Dangerous Occurrence"},
+  "severity_text": {"1": "Near Miss", "2": "Minor", "3": "Significant", "4": "Major", "5": "Catastrophic"},
+  "templates": {
+   "initial": "templates\\Incident initial report template (from PD-00001).docx",
+   "investigation": "templates\\Incident investigation template (from PD-00001).docx",
+   "witness": "templates\\Witness statement template (from PD-00001).docx",
+   "capa": "templates\\CAPA plan template (from FAC-00002).docx",
+   "alert": "templates\\Safety alert template (FRM-00015).pptx"
+  },
+  "project_no": "AVK.WP-03",
+  "project_title": "External Road Improvement Works – WP03",
+  "company_full": "Ahmadiah Contracting and Trading Company Branch - KSA",
+  "ssc_hse_manager": "Farhan Nasir",
+  "engineer_hse_manager": "Fasih A. Syed",
+  "people": {"hse_engineer": ["Faizan Mustafa", "HSE Engineer"], "hse_manager": ["Mahmoud Fawzy", "HSE Manager"], "project_manager": ["Elias Nassar", "Project Manager"]},
+  "register_013": "D:\\Claude Projects\\Quick Access\\17. Registers\\Incident Register\\AVK01-WP.03-HSE-REG-013 - Incident Register.xlsx",
+  "register_014": "D:\\Claude Projects\\Quick Access\\17. Registers\\Minor Incident Register\\AVK01-WP.03-HSE-REG-014 HSE-Minor-Incident-Register.xlsx",
+  "capa_register": "D:\\Claude Projects\\Quick Access\\17. Registers\\CAPA Register\\AVK01-WP.03-HSE-REG-011 CAPA Register.xlsx",
+  "capa_doc_prefix": "AVK01-WP.03-HSE-CAPA-"
+ },
+ "signatures": [
+  ["Prepared by (HSE Engineer)", "Faizan Mustafa"],
+  ["Reviewed by (HSE Manager)", "Mahmoud Fawzy"]
+ ]
+}

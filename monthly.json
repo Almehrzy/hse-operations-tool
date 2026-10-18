@@ -1,0 +1,32 @@
+{
+ "_about": "Setup for the monthly HSE report (JLL template). The newest report in 'folder' is copied and refreshed for the month; the phrases are the house wording learned from the Mar-Sep 2026 reports.",
+ "folder": "D:\\Claude Projects\\Quick Access\\Monthly report",
+ "file_name": "AVK01-WP.03-ACTC-HSE-MPR-00001 - Monthly HSE Report - {Mon} {year}.docx",
+ "company": "ACTC",
+ "wps": "WP.03",
+ "hse_team": "WP.03 HSE Team",
+ "meeting": {"title": "Monthly HSE Meeting", "orgs": "ACTC (Internal)", "frequency": "Twice in a week", "per_week": 2},
+ "mass_tbt_min": 100,
+ "jll_letters": "D:\\Claude Projects\\Quick Access\\JLL Letter and reply",
+ "_practice": "Learned from the Nov 2024 - Sep 2026 reports: 'Issues & Concerns' is left blank and consultant notices go in the letters table with JLL letters; captions name the activity without dates; the to-date line says 'safe man-hours'; one-off events and new facilities are their own bullets (daily-log kind 'achievement').",
+ "phrases": {
+  "million": "WP-03 has successfully achieved a significant milestone of {n} million safe man-hours in {month}, reflecting a strong commitment to workplace safety.",
+  "ptd": "WP-03 has achieved an impressive milestone of {ptd:,} safe man-hours to date without a Lost Time Incident (LTI).",
+  "month": "For {month}, WP-03 recorded {hours:,} safe Work-hours, maintaining a zero LTI record.",
+  "month_lti": "For {month}, WP-03 recorded {hours:,} Work-hours.",
+  "daily_tbt": "Daily toolbox talks are conducted to ensure that all planned activities have been thoroughly analysed for potential hazards and associated risks before commencement.",
+  "mass_tbt": "Weekly mass TBTs were conducted to reinforce awareness of hazards associated with {topics}.",
+  "training": "Training on {topics} was conducted to enhance personnel competency, hazard awareness, and emergency response preparedness in accordance with site safety requirements.",
+  "equipment": "Routine equipment inspections have been carried out to ensure the machinery is fit for purpose, safety devices are functional, and any identified defects are promptly rectified before operation.",
+  "drill": "Emergency drills ({topics}) were conducted to test the site's emergency response arrangements.",
+  "inspections": [
+   ["fire hose", "An internal inspection of fire hose reels related to Precautionary TFF & FE was conducted daily basis to ensure their readiness and effectiveness for emergency response at the site."],
+   ["extinguisher", "An internal inspection of fire extinguishers was conducted to ensure their readiness and effectiveness for emergency response at the site."],
+   ["power tool", "An internal inspection of power tools has been carried out to verify that all equipment is in safe working condition, properly maintained, and free from electrical or mechanical defects prior to use."],
+   ["fbh|harness", "An internal inspection of FBH has been carried out to verify that all FBH are in safe working condition, properly maintained, and free from defects prior to use."],
+   ["equipment|compr|tower ?light|generator|crane|loader|excavator|welding|roller|truck|forklift", "Routine equipment inspections have been carried out to ensure the machinery is fit for purpose, safety devices are functional, and any identified defects are promptly rectified before operation."],
+   ["scaffold", "An internal inspection for scaffolding platforms has been conducted to ensure that all working platforms are fully compliant, properly erected, and equipped with adequate fall protection measures, with no gaps in safety implementation."]
+  ],
+  "inspection_other": "An internal inspection of {topic} was carried out to verify that it is in safe working condition."
+ }
+}

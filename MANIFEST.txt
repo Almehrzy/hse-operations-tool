@@ -1,0 +1,169 @@
+HSE Operations Tool – full copy
+Designed and developed by Khaled Almehrzy © 2026 (khaled.almehrzy@gmail.com)
+Copy made: 2026-10-17 18:21 (local time of the PC that made it)
+Published page: https://claude.ai/artifact/1nppSnbKbVSrEwyiTWDUtF
+Database backup included: backups\db\2026-10-17
+
+Each file below with its size in bytes and SHA-256 fingerprint. The same file always gives the same
+fingerprint, so this list shows what the tool contained on the date above.
+
+b654b32cd2f61687ac0dad4d0d0f48941186f8a678b82bc3b27b688849fab4b0       50047  CLAUDE.md
+b0d10d285708337fe16747144a83fe2f5fe5e72a3dcbdef7b32045bce10f5afc        3631  LICENSE.txt
+04fe2cdb200e54e01aed9854beffdb088bff100ecdcd9ea5a81886ad8cfa55b9       14448  SVR register DRAFT 154-213.xlsx
+c11b68f8bde1809295d75ad6db883dcf431b2f48c832999a8d8c066ba68e5b72       16654  backups\Master Log Register - backup 2026-10-14 233619.xlsx
+a9fd63ea618d444afa7423d2daf3db2421d4ccf36f7e633fa28611a806832b68       16749  backups\Master Log Register - backup 2026-10-15 010915.xlsx
+a05ea27b25012233d591060c36ce7ccf1d8be82178bd0ebc482843c3f82a76d3      145996  backups\SVR LOG REGISTER 2024 - backup 2026-10-14 0351.xlsx
+f25c2c19d58cac2114c37c845be74b87467a84ce8b45fec5519d9db2a02b60d1      197861  backups\db\2026-10-17\assets\0d3846e2d37c974dc23529eb71b82ef4.jpg
+818e969d58b86bc86eacccbc0166017a21d6ab6892309b6e06b9c0c00943e8f8      211394  backups\db\2026-10-17\assets\16c89b48baa19864812a9b3ccdc48543.jpg
+2ca6bc915127eef61eb9cb6a8f5a8ed4409b1618603ef764c02ba87fa09368c7      191944  backups\db\2026-10-17\assets\1df281fc5717632eaaae1983c83fd076.jpg
+f25c2c19d58cac2114c37c845be74b87467a84ce8b45fec5519d9db2a02b60d1      197861  backups\db\2026-10-17\assets\4e1b8212874dfb91ef0ea1eb1daf0374.jpg
+a62c53a904fd818219cae6246e8edfa97da1b68da389cfd4fd61be5d777a1381      156794  backups\db\2026-10-17\assets\6231b797f6de3dd1289194a5b7bcfbdb.jpg
+033566efb770b8e5d1cb20febb901bef5fccd3cffc270c00cdbd338d5733357f        8537  backups\db\2026-10-17\assets\62441cbe9da5cf0ebf0e93730f478f39.jpg
+e463799cb0f4f3a9dbac6fb8c5ef658c2ecb1ea7961fa11dfe9336001dda1b34      164688  backups\db\2026-10-17\assets\63b7cf8e407945280f0d81034032d853.jpg
+6d9aa3fe2b7670d419354dd399d9717df16440b92b0716c82388b1598769cccf      113231  backups\db\2026-10-17\assets\7caf31df6b83cc1d431321b9f3f164ae.jpg
+e6530b9499018cceada97d22050deffcef3f5d58c560edc4478d456330927352      200868  backups\db\2026-10-17\assets\8975e0c2d90f3d3239888d0fb21f7666.jpg
+95235be137cdc3fc07870455ee6215b0698c729e2e42c4c6fe1119d2af0d1c64      354812  backups\db\2026-10-17\assets\97f5ddb29b3a6233b56d67d2b6605dca.jpg
+f25c2c19d58cac2114c37c845be74b87467a84ce8b45fec5519d9db2a02b60d1      197861  backups\db\2026-10-17\assets\e19d78ae7e8bde0267f31c2a5d8c2644.jpg
+86df90ead4ca159e6196dfd879ec6718377a0e45ba21a900b1714e057e673909        2085  backups\db\2026-10-17\consultant\example-sor-023.json
+d6157be8742280befe00394d988f00e2ae4657318b00ebe737bf5b43b282ce3f         973  backups\db\2026-10-17\consultant\example-svn-056.json
+831033ed625e64f3a4a6a4a3c91b57e2c1fcf61c5d77ad8e0817f36c5e1aa4bf         483  backups\db\2026-10-17\consultant\ltr-00280.json
+4c4a3d2ea2ef7479708418cab1cfce17afdf4eb072cb6257b5672de73e7237ec         960  backups\db\2026-10-17\consultant\ltr-00282.json
+43cae836e79397899ac258060cd94b8f7b9a38e566a78af80ac15af606967004         744  backups\db\2026-10-17\consultant\ltr-00284.json
+d90e675e3091d057c2cc145800970fe753460e73bab9e1d811e98e190a3468bb         777  backups\db\2026-10-17\consultant\ltr-00286.json
+01547e3ddceb4158b2123f3b22a59859a058098fbb73e284da116961a63582c0         608  backups\db\2026-10-17\consultant\ltr-00287.json
+056555cfcf6e45dac227b08db02b31cd3a859881aca34ed7dcf83016925d6917         548  backups\db\2026-10-17\consultant\ltr-00290.json
+f1a89035064c8cde72f74ccb3522f4fb943a75ca965994ff66f0f352596dc95b         698  backups\db\2026-10-17\consultant\ltr-00296.json
+eea341bbb93423f1a8ef68aeef43f0701fa1f23ef9a436ce9c7b171a6f441616         419  backups\db\2026-10-17\equipment\eq-004.json
+490c27b332abeaeaccd730f7c57bb44fb4a82518c0529faefe56c0ca1a138f95         424  backups\db\2026-10-17\equipment\eq-005.json
+cbc8fcd35701cdb9077c6e9a4d0b9ac42eb9427f5dcf0847212bf1687112ad66         434  backups\db\2026-10-17\equipment\eq-008.json
+ac7646de19c6e74dc170826478ca034502eb0f4a594ec724e8106990f86d2806         418  backups\db\2026-10-17\equipment\eq-013.json
+9448824845f80c6a8d2ad1f554092851c4aefacb3809deec4ccbcf575b5c7397         410  backups\db\2026-10-17\equipment\eq-014.json
+ea64d31f7718530db14ec5672dbd80989d3c771995268559b7a62d28e45ec558         403  backups\db\2026-10-17\equipment\eq-015.json
+9df963676b7ce56397b367496fa474c7f939a29bf3e7d3841929bcd8eb44aca3         415  backups\db\2026-10-17\equipment\eq-016.json
+45d928701ea5c66c411012bc25a1f91b0bd31b391e71e224261803a0c4896755         422  backups\db\2026-10-17\equipment\eq-017.json
+57ccde9866995c09ffa2f7c4b7c82f79d215790f2e20f58cfbcd28b774aeee86         406  backups\db\2026-10-17\equipment\eq-018.json
+42b429f3aa924b507612db152f45cb3e4e164e66868b4491128dfe8cbf6d64e8         416  backups\db\2026-10-17\equipment\eq-019.json
+20d3063974667bfe98fa22d7e775e06d8ce3fafa221e66ed33634807d861fa43         412  backups\db\2026-10-17\equipment\eq-020.json
+1e6f103db020646f68ae4cf118ffad3f83f125c625dc00b147818970b1aa2a9d         427  backups\db\2026-10-17\equipment\eq-022.json
+0657a9223f3b532d953cf2f8d3eebb9d775687302ea81cd87291a65ed4afecd6         415  backups\db\2026-10-17\equipment\eq-023.json
+eff524ca6c7da6c7127a70ef8b77f5dcf0abdea40b013bcf9284623addff7654         411  backups\db\2026-10-17\equipment\eq-026.json
+fb5ab3ceae638cef52b04ff8d3b3801e3f94e1ca17ebfa03cef663c6f6df3c77         413  backups\db\2026-10-17\equipment\eq-027.json
+88a9f810469708f18d98f3dd68f5d84d87390cd7928546994fd5faecb5e5c8bd         407  backups\db\2026-10-17\equipment\eq-028.json
+c55e8f0e98c7b651049e7d51db75e614a35552cce4eb11bb0596d0b8f647c8cc         405  backups\db\2026-10-17\equipment\eq-029.json
+d37aa93c6a9a54c7e5645aabc27f142c680219226f0856299e58d27ad80df58d         378  backups\db\2026-10-17\equipment\eq-030.json
+6b278c8926834a6f94672d0aef939402b0bdda20242584e8d4d97a947735d0fa         412  backups\db\2026-10-17\equipment\eq-031.json
+b61c7f532ec5d8ab7dfe8974339cefb5fe9a15f98feb3d589a7d16dddcf66f17         405  backups\db\2026-10-17\equipment\eq-032.json
+83d580db4decec6ff58acc556c0618a4321090698b7630774a62a714e38938a9         412  backups\db\2026-10-17\equipment\eq-033.json
+e3e0678d95a78edd4fa37ba910c341da8f6ae8c5f666ea0161b9ca3ec7c0cc40         392  backups\db\2026-10-17\equipment\eq-034.json
+92c67d955e7df26352897d5b199ae405f3cbd06b093361c891c010aadac340ee         396  backups\db\2026-10-17\equipment\eq-035.json
+cc0fad75ea7b1c214a82449b5feb4a5e2f1e1e38f2c8e656cf197435ec55b021         402  backups\db\2026-10-17\equipment\eq-036.json
+3b2128633cc45c5d057db03e856d106a1f287167e932bf8b7e2772ad04d99df9         402  backups\db\2026-10-17\equipment\eq-037.json
+28254ee120f953db43e47eaf2f8b32e7ae0cb55bac2ed0fb2803868871309570         402  backups\db\2026-10-17\equipment\eq-038.json
+4fb6023a98fa8870adf02608c1ea8510d711e2cd7563a0ecbc91759a0142a2ed         402  backups\db\2026-10-17\equipment\eq-039.json
+c6a8a29589a5e8903c2028e19be80b033f1e014ff6ae4ea123634422d6af3741         407  backups\db\2026-10-17\equipment\eq-040.json
+a05ca5dd0c16902a9e6b5b9284109f9ef238162bea8aad4c5bb3fabe0a8cb27b         417  backups\db\2026-10-17\equipment\eq-041.json
+d247ea60f343ec109ab2b195f0a702ce2da742e7431844888e74168520b39036         425  backups\db\2026-10-17\equipment\eq-042.json
+9a6e263455baa59bf47491076a756d991242b65e17a6f6407791e54f3743378e         405  backups\db\2026-10-17\equipment\eq-043.json
+fa62892b1ee9af126abfd50aa829477b0a8da071a94e90fcd371f0e0ebc4aee5         425  backups\db\2026-10-17\equipment\eq-044.json
+d8f1bedc62e90f48d54ea13f8e27e2c5e6ab7b29978959d3a8e167730181d36c         385  backups\db\2026-10-17\equipment\eq-046.json
+18499495f278f11722dd6e97eaabbcfd51470dc7a82c3fa9b09ce420351613f3         409  backups\db\2026-10-17\equipment\eq-047.json
+db08c9848e01990b742a77ffd3b51ba8b6b4c799a691f6f8df3e997e68a3350e         409  backups\db\2026-10-17\equipment\eq-048.json
+d4d7a0335f21a07c0cb1c5f4994bba5764bdc31be84c01999cf6b3ead433c9ce         416  backups\db\2026-10-17\equipment\eq-049.json
+b9fd23fb7a249b27bd61deb7d8f4831f0d8cf6fd8ac808db60385ee5c05f8ace         408  backups\db\2026-10-17\equipment\eq-050.json
+e96e2afaeb169f80a1371e3eab4e9d24ab50352cba3f6d659f84ce5c02eb56a4         405  backups\db\2026-10-17\equipment\eq-051.json
+6c780d97c639b5880ae791cc6940ded8fad391be2bade205746aea54a93a57ab         405  backups\db\2026-10-17\equipment\eq-052.json
+d91c5c68f934d0e912c8bbb588d9ef7a686b060312a3dda1a9ca25f5805daa4c         404  backups\db\2026-10-17\equipment\eq-053.json
+17462b2eb38447db15af692035b3e19ab8a8a5bf88fdd5f3ea209879b50ddd7f         420  backups\db\2026-10-17\equipment\eq-054.json
+ec9030ab0f7fa1bccacc6c88caef1e491045d3ea4087492b9f7e2142861c9fa4         409  backups\db\2026-10-17\equipment\eq-055.json
+91e38606c08572452e3af9904a86a3dbb868d8ea14e8170f551e41ad1a7a0cbf         429  backups\db\2026-10-17\equipment\eq-056.json
+5221dac0609f67e5986450890f6b0fc467e8f6a3ffae4f7bbf7fed1bf76065c2         404  backups\db\2026-10-17\equipment\eq-057.json
+c0bc55975a7e5f5f89a7d2b7e77d2618d8e3b2f70dd22818f9f1912fa7f78d28         395  backups\db\2026-10-17\equipment\eq-058.json
+e359af2d3ea3c181af1cf30b4652deac21c27798012036f783119346835a2726         394  backups\db\2026-10-17\equipment\eq-059.json
+64ed7a2ed053589caebb1817736b00653d32b819b619860932efa23ab4160bf1         395  backups\db\2026-10-17\equipment\eq-060.json
+07fa158d2a7eb6f1e888f8c28f0a1a2a9f11bfe74be35de21358228e956607e5         400  backups\db\2026-10-17\equipment\eq-061.json
+fbbb08cb917a2b37b409b489696ef9824670d8832e61beada86ad6df756765ef         400  backups\db\2026-10-17\equipment\eq-062.json
+7b64694b64995e3d1b761a3e126a9581d085c6f079d5c1e0c5405d79da77fd2d         400  backups\db\2026-10-17\equipment\eq-063.json
+a20420a7a2796d2519720752879ccfdfbbc5fb998d3041d9a4e6770ffb106323         396  backups\db\2026-10-17\equipment\eq-064.json
+814f253dcbffd450161d0ca2875174ea151803fe95e7ea8157f265d80ae3b4df         429  backups\db\2026-10-17\equipment\eq-065.json
+c0eb197ac057d6234d703b2f4c60f98add63ad07d339827979e05436588d1ff6         429  backups\db\2026-10-17\equipment\eq-066.json
+ef33ca75da147479f5aba778c8888f71fb2d835c111661025162f31e6f0348ef         415  backups\db\2026-10-17\equipment\eq-067.json
+05bfe5ef86dab4e8c9668b4bd61834259d72d23760e8ce7db916642689dbae28         414  backups\db\2026-10-17\equipment\eq-068.json
+61266efdee484cd05fd1b0804b1745b8396395e009865ee27dd99374544f9af4         414  backups\db\2026-10-17\equipment\eq-069.json
+ab6993c3f65d44d233d4f317e716cdb296205a3ae13033259eafd0a676a8af45         409  backups\db\2026-10-17\equipment\eq-070.json
+2f88ef745a4a15d4bda93c694c3bcb7770e9932ebb68ef8dd0d5a83709a4847e         409  backups\db\2026-10-17\equipment\eq-071.json
+a6f88fdce2be1d7cebaa2339a9ab6356deada30b5ef633cb06896216dbbaac75         412  backups\db\2026-10-17\equipment\eq-072.json
+ba24d29f14067e94ef10199d5b73ee6bbc3f816e61f4fdd604f4ec5359e3130d         395  backups\db\2026-10-17\equipment\eq-073.json
+23910c046aff05f181c14183b8b323c58809df6772e2732b2ce08679d00e7ab0         415  backups\db\2026-10-17\equipment\eq-074.json
+c3868266a607a430904443a0279df46f40c296a621da6e70ee407802aba884c9         418  backups\db\2026-10-17\equipment\eq-075.json
+e981895102298457fc6914d6f09c9e8bad5244df955d08be06b502c4f06a868e         407  backups\db\2026-10-17\equipment\eq-076.json
+596b9da8f5176380b9522a25ae85e682fec1a243d6cbfa684d601ba9de1a43a0         405  backups\db\2026-10-17\equipment\eq-077.json
+655c6d8abb2634d3df5c32e07f030ee6830e6908e1d1eb70a6476bd1b029535b         384  backups\db\2026-10-17\equipment\eq-078.json
+b5813e5b6203476c987a0816f129ae1231f5cbb08539230ecc0ed5057a99cc12         392  backups\db\2026-10-17\equipment\eq-079.json
+5b49f4fdbcbb3fef439bd4f9b11f52ecfff197147d678b4f913060043d783449         396  backups\db\2026-10-17\equipment\eq-080.json
+b1ba149b625fe9bc5519287b2e006e5372fa3268a3954f9a5d43ed2f3948a1fa          66  backups\db\2026-10-17\members\u_AvpSNO6ZWNfqJUrUyGTLtA.json
+afece2a2c7fa4f24b9e4d6168126e7cfcc300f54c922f9b26ca21e70f1d2cb0e         232  backups\db\2026-10-17\members\u_bm5c8cccbnRw9RyP9EsIkA.json
+be64db12556f2cc0d7f5354399bd12f0b96801225e06c934ffb7b35e89594863         825  backups\db\2026-10-17\observations\44c3a3tsc7iq0d5ah9fw.json
+62f72cb00fcd3161e6b38fa866db885d90bc45b0b92f597f011dacaade96ca7f         697  backups\db\2026-10-17\observations\8z0j4x2ifkldjpodljvl.json
+8affdd550a58fe19052f54ab4c7c6cf6222e7cda794e944dfe1c8cc27bd09a36         781  backups\db\2026-10-17\observations\example-1.json
+8c3ddda3d7af7be6818a57cd6a1c3c195ad68f00c480b134acbc06c88bb25de1         610  backups\db\2026-10-17\observations\example-2.json
+80ac154540004384069d43d1929ca4bb38242cd8a572829d0b8c38c4685cab22         709  backups\db\2026-10-17\observations\example-3.json
+9d103cdfd278daf070386e8ade2a98c0c518cd164f75d3ad21b6312c4eb0f0a6         118  backups\db\2026-10-17\roles\u_bm5c8cccbnRw9RyP9EsIkA.json
+0d5b12b9aff2fb5aceb1e07dbaf4247ffb453484afa6ecdcd29f776365db9bdf       86173  backups\db\2026-10-17\settings\equipment.json
+970c26c893b0ebc75e85a00d861daec003b6d1650959402856796cd7e8a05625       18408  backups\db\2026-10-17\settings\permits.json
+03eda22cda9bcaca316c821c86367c8dbc52f0eb7405b6ef4eef0198df33d0e7        8098  backups\db\2026-10-17\settings\project.json
+1a9fda49f8012b52f34ab60c8c159d2836081de792c17d6d28bff01f3ac34d09        1567  backups\db\2026-10-17\settings\training.json
+00808653fa84ea006a92270ac6296143ebee06f61eb1547c12f757fe833d55b3         323  backups\db\2026-10-17\svnEvidence\18hadejb07w8vrcihqyu.json
+b96b357b2dfb66df7b5d2229a916696a02beb7cc7ace6925aaaa3e9966c33de1         320  backups\db\2026-10-17\svnEvidence\1hz7ljtixhh7stu8c147.json
+d335b215297b6d5b515b8d8bcc7ddc71e3fda88697c5380ae89b9f76fb5ee9c2         326  backups\db\2026-10-17\svnEvidence\3v73tounyl1lyg2vwtgr.json
+2f1a7ce756960d1347b7d546176b16990bf4f5f64d6ab677efc947f2e1fc480b         350  backups\db\2026-10-17\svnEvidence\a9xba7wojz2trr5cj97g.json
+a765b646f4f31ce69df9b1d98b5269770b997f7fcfaa30efa4a228eb7aa07bf8         322  backups\db\2026-10-17\svnEvidence\cgq6y4d0c7kkmh5wanf4.json
+51e222d98b786f80a4093976026dbb89a66d533e733ec772f660e74ed3f1e1bc         319  backups\db\2026-10-17\svnEvidence\d49iwuowm8y23c6c9ylt.json
+879ab22a2e594c061a5f6e386ea21304742e04221c432eeb6de2712214a46ca6         322  backups\db\2026-10-17\svnEvidence\phvsl9hi9zg6ek55vkqc.json
+fb25ee486731a60e9777a25894e4f52431746b0a6325b7ced5927f80144fefa8         342  backups\db\2026-10-17\svnEvidence\r9hxv1ci7uw410n8oqcz.json
+39e254515183f5a6231b5a7974c2fe3e635260748b790ad39b0101d10957ec38      101123  backups\db\2026-10-17\workersIndex\chunk-01.json
+f4646e440d24a5d654d6fe06292a211f8650dcb07c2433ba0cfc55a181bd6311      114657  backups\db\2026-10-17\workersIndex\chunk-02.json
+0e419582c11a89ac8ec5180bfa53bc6a2d7250011fe5f8b73baa63037c7b63cd      109682  backups\db\2026-10-17\workersIndex\chunk-03.json
+9210a17a4bb3d66b534a477b9efb51add81d62318919601aa7b2c48cb81dfeb6       98317  backups\db\2026-10-17\workersIndex\chunk-04.json
+98b147bb80fad527c6bab6c5910d92ffafdf8061a4438651e98151745aeca605       29509  backups\db\2026-10-17\workersIndex\chunk-05.json
+8f3f18c9a67f8597403d75a40bac6deef3b20a9e59789dc1fb713c62de6f3a49       16927  equipment.json
+35f64f5ac7f04f6466a7f48085e8887734dfc2f472ebe28e2f2798d79260241a        3716  monthly.json
+2abe8605a8aab7a0c1cca574becec393e43504f6c6078d267a59d55086891097       12544  permits.json
+1a7be8dd4fb1d630c18500fcdc72b094333a7c7919790aea621ba9152c45a1a1        4388  project.json
+c1e0e05a19cb44bd65bc2155db0763fbdcb653559f8badd3bc091919fc1d6bb5         557  scripts\config.py
+b719a8e090de3e297eb7fea9476317e09cc769df8066536b4d95a547e5f6f3ef        6826  scripts\dust_register.ps1
+9bf44dac464cc5cabb2469b2f9d3b01a4b820ba1d862acdd2bd016379021207e        2993  scripts\dust_register.py
+3c26d0c198b245a452cfd078184c5d3712796a69a8b4d9b7e98c8f12a97d2d85       21895  scripts\equipment.py
+258c8455e2ba6eaf740251a3244270c21e4fe1bd2c83f9aad1dba7bcb1bfebb3        8302  scripts\founding_doc.py
+66279740a6ab9439bbed2b2480baef620a1763bd2735573e1a8ce928f97a46ba        6164  scripts\full_copy.py
+269ed61997a8ef18e0d086f65b5dd0057520e3c45e262340b6c302f0f24ee76f       48397  scripts\incident.py
+985e8cda3bfaffe3c93f2806e646ba626ed067f220e45211e993845a9fb7f026        5684  scripts\incident_register.ps1
+a881a932f3d24b21a412f3609d7068cc54c72f39e2d144cc3bbe2662644cb7da       12685  scripts\letter_reply.py
+aa71a3f2eeeaea06c27486e7f0c2a11cf4e623c22abcd3d477eb0cbd5b932eb3       21806  scripts\monthly_report.py
+0c9f78e50b1eecaf03ff3e36d483ee26a8b085d27a3aacc5f0bd6d4700073b2b       14120  scripts\monthly_sources.py
+bb19b816c46f730fa3c7b334dc24279f927e0a333c400bc9d83cbdbfa60beef0       29675  scripts\permit.py
+e2e3ce0baa95896b9a80408a1b43fd7da1b38aa4f5506e4e38d484cf728b6671        7550  scripts\permit_register.ps1
+0b04d9f21188d863ff4f15e9508cae384883d8bfae1a63a927165740e5df25f6        4925  scripts\read_weekly.ps1
+43199d5a82cde1e10cbbc499373c90517a94032e65dc7201ed6a446640f18ac8        4999  scripts\register_append.ps1
+361df20334466f25aed048829c1a7024f80cc86707d03c1a58802fc8a4e29275        6665  scripts\sor_reply.py
+155d494d698bdb92178af7095eba5bf9d306b7467e9012ba919a80cc379ffed8        3682  scripts\svn_register.py
+c509a6deca3a39912dc5a550f9356a945b427ed23156dfde58bd38d278289b8f       24867  scripts\svn_reply.py
+94e6ef2cc244baec275422b166349e4d5c2fb6256b47411e8b7e54fc4f39c51e       10370  scripts\svn_scan.py
+8017dfc0441505f06c19991b8081e710efdc0d854d9457b7846a18420a4867aa       15111  scripts\svr.py
+82e2491dae69eb5447553746e65a610702c8ec8e20a97ff04d4ac54ec60f1e1c        4491  scripts\training_index.py
+c16724da1b4f04f10161bd7b7abcd17199e719e9ebd1485e7f997af6d8839a9a       11247  scripts\trend_report.py
+237daa50a27acf9a5544e3ebfd838af912e7f3c33f951483b145100e27925a5b        5964  scripts\tuv_register.ps1
+8d8c42ac3430ef12757e4b697788ef99734cf36171c2cd6ff8f177fcc95c1a26        7907  scripts\weekly_hse.ps1
+420986ce6726f22fa5eb560019facb4680629b952b03c509f1d6aeae97599e9d       12068  scripts\weekly_hse.py
+57af9a2ff79fda9561578346f246e7543ae8e5ca6f443fdc807bb4146c1c7a17      349082  site-observations.html
+2341abaa29aa60ba7b1aca5af300e53af28f5ca7387b9db0c81b2c471fdf5aab      280298  templates\CAPA plan template (from FAC-00002).docx
+eddc4a8f969a02c0a0f8117c3d67b850a0379535da9f5ce9c74475e7d8431dec      140391  templates\Equipment daily checklists (from 1 Monthly print).xlsx
+1382ac1875bc1113f8cfb0f8e10124b7ae43bc33d333262344bdad63d3131ec0       79491  templates\Equipment monthly checklists (from AVK-01 WP03).xlsx
+a86a6a6c7919c0957e13203c0186e5c7dc1016d0c8fbf455334ba13f575fbf6a      967003  templates\Incident initial report template (from PD-00001).docx
+460dc46318bedc151de6e9bd372656af19b34f030a2e091f7b025bd6b4aa34c6     3862183  templates\Incident investigation template (from PD-00001).docx
+a0e13c1751b1c12f4a871dac2d7bb1221703b016e03a2d399b2272d8b3e9baa5      265606  templates\JLL reply template (from 00284).docx
+f3d1bfbd923f28e368e80270f913c3353f4ecfb8f96b64588d83bec261da328e        6680  templates\SOR closeout template (from 019).xlsx
+ce7a933991be84313b2bca254c44da6206e0441123378fa4b1f7cb446152e7b0     2588048  templates\SVN closeout template (from 056).docx
+a343d282a4f594e81bbb89edbb18f2995d2411f0df6cc0a35377d25d89c3405b       69199  templates\Safety alert template (FRM-00015).pptx
+aeab1a00b04284b0a41c0837d46799fb0380cdc815a262cb93587a8f1616bc2a       67783  templates\Witness statement template (from PD-00001).docx
+
+158 files, 11,865,102 bytes

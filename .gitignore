@@ -1,0 +1,15 @@
+# HSE Operations Tool: what stays out of Git (private repository)
+# Project records and register backups (they belong to the project and company, see LICENSE.txt section 4)
+backups/
+# Company forms used as templates (they remain their owners' property); copied by hand to each PC
+templates/
+# Test runs and temporary files
+test-output/
+__pycache__/
+*.pyc
+~$*
+*.tmp
+Thumbs.db
+desktop.ini
+# Project data kept outside the repository
+SVR register DRAFT*.xlsx
