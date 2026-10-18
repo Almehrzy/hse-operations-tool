@@ -8,6 +8,9 @@ Built on the reply template's page setup (Arial, page numbers); English record w
 import datetime as dt, hashlib, json, os, re, sys, zipfile
 from xml.sax.saxutils import escape
 import letter_reply as LR
+from config import CFG
+
+AUTHOR = CFG.get("author", {})      # project.json author: {role, role_ar} at the time of the record
 
 AR_RPR = '<w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/><w:rtl/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr>'
 
@@ -36,7 +39,7 @@ def main():
         LR.para("Founding and Authorship Record", bold=True, justify=False, after=240).replace('w:val="21"', 'w:val="28"'),
         LR.label_line("Author", "Khaled Almehrzy – founder, designer and developer of the tool"),
         LR.label_line("Contact", "khaled.almehrzy@gmail.com"),
-        LR.label_line("Role", "General Safety Supervisor, ACTC – The Avenues Khobar, External Roads Improvement Works (WP.03)"),
+        LR.label_line("Role", AUTHOR.get("role", "")),
         LR.label_line("Record date", today),
         P(""),
         H("1. What the tool is"),
@@ -53,7 +56,7 @@ def main():
         B("Worker competency lookup, team roles with server-enforced approvals, backups and integrity checks."),
         H("3. Development record"),
         P("The earliest dated records of the tool are of 14 October 2026. Main stages, as recorded in the tool's instructions file (CLAUDE.md):"),
-        B("14 October 2026 – observation log, worker violations (SVR), PACE SVN register and close-out replies."),
+        B("14 October 2026 – observation log, worker violations (SVR), consultant SVN register and close-out replies."),
         B("15 October 2026 – NCR and SOR, weekly SOR trend report, equipment inspections, work permits, team roles, daily log, weekly HSE report and monthly HSE report."),
         B("16 October 2026 – incidents and CAPA, safety alert, Engineer's letters and replies, environment records, worker competency lookup, permit training check, server-side permissions, backups and this record."),
         P("The author conceived the tool, specified each part, directed its development and approved the results. The code was "
@@ -75,8 +78,8 @@ def main():
         P("Date: ______________________________", justify=False, after=240),
         '<w:p><w:r><w:br w:type="page"/></w:r></w:p>',
         ar("ملخص بالعربية", bold=True),
-        ar(f"أداة HSE Operations Tool من فكرة وتصميم وتطوير خالد المحرزي (Khaled Almehrzy)، المشرف العام للسلامة في مشروع الطرق الخارجية WP.03 بمشروع "
-           f"أفينيوز الخبر. أقدم السجلات المؤرخة للأداة بتاريخ 14 أكتوبر 2026. هذه الوثيقة مؤرخة في {today}، وتذكر بصمة نسخة كاملة من "
+        ar(f"أداة HSE Operations Tool من فكرة وتصميم وتطوير خالد المحرزي (Khaled Almehrzy)"
+           f"{'، ' + AUTHOR['role_ar'] if AUTHOR.get('role_ar') else ''}. أقدم السجلات المؤرخة للأداة بتاريخ 14 أكتوبر 2026. هذه الوثيقة مؤرخة في {today}، وتذكر بصمة نسخة كاملة من "
            f"الأداة (SHA-256) تثبت محتواها في هذا التاريخ. الأداة برنامج مملوك للمؤلف، وجميع حقوقه محفوظة له، واستخدامها وفق ملف "
            f"LICENSE.txt. كُتب الكود بمساعدة Claude، المساعد الذكي من شركة Anthropic، بتوجيه المؤلف وتحت إشرافه."),
         ar("للتسجيل الرسمي: تتيح الهيئة السعودية للملكية الفكرية التسجيل الاختياري لبرمجيات الحاسب عبر بوابتها saip.gov.sa (الخدمات ← حق المؤلف)، "

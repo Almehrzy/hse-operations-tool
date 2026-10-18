@@ -1,5 +1,5 @@
 # HSE Operations Tool. Copyright (c) 2026 Khaled Almehrzy. All rights reserved. Proprietary: see LICENSE.txt.
-"""Weekly HSE Statistics Report (HSE-FRM-00015) from the tool's records.
+"""Weekly HSE Statistics Report (the project's weekly form, project.json `weekly`) from the tool's records.
 
     python weekly_hse.py <export dir> [--week YYYY-MM-DD] [--out-dir DIR]
 
@@ -13,6 +13,8 @@ import datetime as dt, glob, json, os, re, sys
 import openpyxl
 from config import CFG
 import trend_report as TR
+
+WK = CFG.get("weekly", {})        # the weekly form: folder, file_glob, file_name
 
 DAYS = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 INC_ROWS = {"ftl": 20, "lti": 21, "mtc": 22, "fac": 23, "fire": 24, "mvi": 25, "illness": 26, "env": 27, "damage": 28, "nearmiss": 29}
@@ -45,9 +47,9 @@ def day_of(iso, off=3):
 
 
 def report_files():
-    base = os.path.join(CFG.get("trend", {}).get("folder", r"D:\Claude Projects\Quick Access\Weekly Report"))
+    base = WK.get("folder") or CFG["trend"]["folder"]
     out = []
-    for f in glob.glob(os.path.join(base, "**", "HSE-FRM-00015*.xls*"), recursive=True):
+    for f in glob.glob(os.path.join(base, "**", WK.get("file_glob", "*Weekly HSE report*.xls*")), recursive=True):
         m = re.findall(r"(\d{1,2})[-\s](\d{1,2})[-\s](\d{2,4})", os.path.basename(f))
         if len(m) >= 2:
             d, mo, y = m[1]
@@ -107,7 +109,7 @@ def main():
         return sum(int(x.get("attendees") or 0) for x in logs if x.get("kind") == kind and (key is None or x.get(key) == val))
 
     # incidents: the Incidents tab (collection `incidents`) and older daily-log entries; RWC and dangerous occurrences
-    # have no row of their own in HSE-FRM-00015 and are counted with MTC and near misses (as the page does)
+    # have no row of their own in the weekly form and are counted with MTC and near misses (as the page does)
     inc_map = {"rwc": "mtc", "dangerous": "nearmiss"}
     incs = [x for x in load(export, "incidents") if not x.get("example") and inweek(x.get("date"))]
     rows = {}
@@ -174,14 +176,14 @@ def main():
 
     prev = [f for d, f in report_files() if d < start]
     if not prev:
-        raise SystemExit("No earlier HSE-FRM-00015 report found to carry totals from.")
+        raise SystemExit("No earlier weekly HSE report found to carry totals from.")
     prev_end, prev_file = [x for x in report_files() if x[1] == prev[-1]][0]
     prev_wed = prev_end - dt.timedelta(days=2)
     same_month = (prev_wed.year, prev_wed.month) == (wed.year, wed.month)
     if (start - prev_end).days != 1:
         notes.append(f"the previous report ends {prev_end}, not the day before this week ({start}); totals carry from it anyway")
     out_dir = opt.get("--out-dir") or TR.month_folder(CFG["trend"]["folder"], wed.year, wed.month)
-    name = f"HSE-FRM-00015 - WP.03 Weekly HSE report {start:%d-%m-%Y} to {end:%d-%m-%Y}.xls"
+    name = WK.get("file_name", "Weekly HSE report {start} to {end}.xls").format(start=f"{start:%d-%m-%Y}", end=f"{end:%d-%m-%Y}")
     values = {"source": prev_file, "out": os.path.join(out_dir, name), "sameMonth": same_month,
               "dates": {"from": s0, "to": s1, "report": str(end + dt.timedelta(days=1))},
               "manpower": {"D9": contractor, "E9": contractor_sa, "D10": sub, "E10": sub_sa, "D12": hours, "E12": hours_sa},

@@ -1,17 +1,27 @@
 ﻿# HSE Operations Tool. Copyright (c) 2026 Khaled Almehrzy. All rights reserved. Proprietary: see LICENSE.txt.
-# Reads the weekly HSE reports (HSE-FRM-00015, .xls) through Excel and writes what the monthly report needs, one entry per
+# Reads the weekly HSE reports (project.json weekly.file_glob, .xls) through Excel and writes what the monthly report needs, one entry per
 # file: the dates on the report, project-to-date figures, the Daily Manpower rows, TBT, Trainings and Inspections rows,
 # and the monitoring / incident / training numbers of the week. Read-only: nothing is changed.
 #
-#   read_weekly.ps1 -Out weekly.json [-Folder "D:\Claude Projects\Quick Access\Weekly Report"] [-Since 2026-08-01]
+#   read_weekly.ps1 -Out weekly.json [-Folder "<weekly reports folder>"] [-Since 2026-08-01]   (default: weekly.folder, else trend.folder)
 param(
     [Parameter(Mandatory)][string]$Out,
-    [string]$Folder = "D:\Claude Projects\Quick Access\Weekly Report",
+    [string]$Folder = "",
     [string]$Since = ""
 )
 
 $ErrorActionPreference = "Stop"
-$files = Get-ChildItem -LiteralPath $Folder -Recurse -File -Filter "HSE-FRM-00015*.xls*" | Where-Object { $_.Name -notlike "~$*" }
+# project folder: HSE_PROJECT_DIR, else the nearest folder up from here holding project.json, else the tool folder
+$toolRoot = $env:HSE_PROJECT_DIR
+if (-not ($toolRoot -and (Test-Path -LiteralPath (Join-Path $toolRoot 'project.json')))) {
+    $toolRoot = $null; $d = (Get-Location).Path
+    while ($d) { if (Test-Path -LiteralPath (Join-Path $d 'project.json')) { $toolRoot = $d; break }; $up = Split-Path $d -Parent; if (-not $up -or $up -eq $d) { break }; $d = $up }
+    if (-not $toolRoot) { $toolRoot = Split-Path $PSScriptRoot -Parent }
+}
+$cfg = Get-Content -LiteralPath (Join-Path $toolRoot "project.json") -Raw -Encoding UTF8 | ConvertFrom-Json
+if (-not $Folder) { $Folder = if ($cfg.weekly.folder) { [string]$cfg.weekly.folder } else { [string]$cfg.trend.folder } }
+$glob = if ($cfg.weekly.file_glob) { [string]$cfg.weekly.file_glob } else { "*Weekly HSE report*.xls*" }
+$files = Get-ChildItem -LiteralPath $Folder -Recurse -File -Filter $glob | Where-Object { $_.Name -notlike "~$*" }
 if ($Since) { $sinceDate = [datetime]::ParseExact($Since, "yyyy-MM-dd", $null); $files = $files | Where-Object { $_.LastWriteTime -ge $sinceDate.AddDays(-10) } }
 
 function D($v) { if ($v -is [double] -and $v -gt 30000) { return [datetime]::FromOADate($v).ToString("yyyy-MM-dd") } return [string]$v }

@@ -4,6 +4,7 @@
  "package": "WP.03",
  "contractor": "ACTC (WP.03)",
  "contractor_short": "ACTC",
+ "contractor_full": "Ahmadiah Contracting & Trading Co. (ACTC)",
  "consultant": "PACE Supervision Consultant",
  "consultant_short": "PACE",
  "pmc": "JLL",
@@ -42,6 +43,21 @@
   "week_starts": "Saturday",
   "month_by": "Wednesday"
  },
+ "weekly": {
+  "folder": "D:\\Claude Projects\\Quick Access\\Weekly Report",
+  "file_glob": "HSE-FRM-00015*.xls*",
+  "file_name": "HSE-FRM-00015 - WP.03 Weekly HSE report {start} to {end}.xls"
+ },
+ "dust": {
+  "register": "D:\\Claude Projects\\Quick Access\\17. Registers\\Dust Suppersion Register\\AVK01-WP.03-HSE-REG-017 - Dust Suppersion Register.xlsx"
+ },
+ "letters": {
+  "folder": "D:\\Claude Projects\\Quick Access\\JLL Letter and reply",
+  "ref_pattern": "JLL-LTR-[A-Z]{2,4}-[A-Z]{2}-\\d{5}",
+  "file_words": "JLL-LTR|JLL Letter",
+  "template": "templates\\JLL reply template (from 00284).docx",
+  "signatory_title": "Project Manager / Contractor's Representative"
+ },
  "incidents": {
   "folder": "D:\\Claude Projects\\Quick Access\\15. Incident & Accident Reports PACE & JLL",
   "ref_prefix": "AVK01-ACTC-WP.03-HSE-",
@@ -58,6 +74,13 @@
   },
   "project_no": "AVK.WP-03",
   "project_title": "External Road Improvement Works – WP03",
+  "capa_project_title": "External Road Improvement Works – WP-03",
+  "template_refs": {
+   "investigation": "AVK01-ACTC-WP.03-HSE-INV-PD-00001",
+   "witness": "AVK01-ACTC-WP.03-HSE-WIT-PD-00001",
+   "capa": "AVK01-WP.03-HSE-CAPA-002",
+   "capa_closure_starts": "Ahmadiah Contracting"
+  },
   "company_full": "Ahmadiah Contracting and Trading Company Branch - KSA",
   "ssc_hse_manager": "Farhan Nasir",
   "engineer_hse_manager": "Fasih A. Syed",
@@ -66,6 +89,10 @@
   "register_014": "D:\\Claude Projects\\Quick Access\\17. Registers\\Minor Incident Register\\AVK01-WP.03-HSE-REG-014 HSE-Minor-Incident-Register.xlsx",
   "capa_register": "D:\\Claude Projects\\Quick Access\\17. Registers\\CAPA Register\\AVK01-WP.03-HSE-REG-011 CAPA Register.xlsx",
   "capa_doc_prefix": "AVK01-WP.03-HSE-CAPA-"
+ },
+ "author": {
+  "role": "General Safety Supervisor, ACTC – The Avenues Khobar, External Roads Improvement Works (WP.03)",
+  "role_ar": "المشرف العام للسلامة في مشروع الطرق الخارجية WP.03 بمشروع أفينيوز الخبر"
  },
  "signatures": [
   ["Prepared by (HSE Engineer)", "Faizan Mustafa"],

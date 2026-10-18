@@ -1,12 +1,12 @@
 # HSE Operations Tool. Copyright (c) 2026 Khaled Almehrzy. All rights reserved. Proprietary: see LICENSE.txt.
-"""SOR close-out workbook in the house format (template made from the SOR-019 close-out).
+"""SOR close-out workbook in the house format (template made from a past close-out workbook).
 
     python sor_reply.py template <existing closeout.xlsx> <template.xlsx>   -> make a clean template (once)
     python sor_reply.py make <reply.json> <out.xlsx>                        -> write the close-out
 
 reply.json:
 {
- "sor_no": 24, "ref": "PACE-WP03-HSE-SOR-024", "inspection_date": "2026-10-20", "received": "2026-10-20",
+ "sor_no": 24, "ref": "SSC-P1-HSE-SOR-024", "inspection_date": "2026-10-20", "received": "2026-10-20",
  "items": [{"location": "...", "category": "...", "risk": "E", "requirement": "observation and recommendation text",
             "observation_photo": "C:/.../pace_p1_1.jpg", "rectification_photo": "C:/.../fix.jpg",
             "corrective_action": "...", "closure_date": "2026-10-20"}]

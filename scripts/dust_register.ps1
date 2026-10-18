@@ -1,5 +1,5 @@
 # HSE Operations Tool. Copyright (c) 2026 Khaled Almehrzy. All rights reserved. Proprietary: see LICENSE.txt.
-# Writes the month's dust suppression rounds into REG-017 through Excel (rows from dust_register.py).
+# Writes the month's dust suppression rounds into the dust register (project.json dust.register) through Excel (rows from dust_register.py).
 # Makes the month sheet from the previous month's when it is missing, adds day rows the sheet lacks (e.g. the 31st),
 # fills Time and Remarks only on days that are empty (or "-"), and lists days that already hold something else.
 # Backs the register up to backups\ first; stops without saving on any mismatch.
@@ -7,7 +7,7 @@
 #   dust_register.ps1 -RowsJson rows.json [-Workbook <copy for tests>]
 param(
     [Parameter(Mandatory)][string]$RowsJson,
-    [string]$Workbook = "D:\Claude Projects\Quick Access\17. Registers\Dust Suppersion Register\AVK01-WP.03-HSE-REG-017 - Dust Suppersion Register.xlsx",
+    [string]$Workbook = "",
     [string]$BackupDir = ""
 )
 
@@ -20,6 +20,12 @@ if (-not ($toolRoot -and (Test-Path -LiteralPath (Join-Path $toolRoot 'project.j
     if (-not $toolRoot) { $toolRoot = Split-Path $PSScriptRoot -Parent }
 }
 if (-not $BackupDir) { $BackupDir = Join-Path $toolRoot "backups" }
+if (-not $Workbook) {
+    $cfg = Get-Content -LiteralPath (Join-Path $toolRoot "project.json") -Raw -Encoding UTF8 | ConvertFrom-Json
+    $Workbook = [string]$cfg.dust.register
+    if (-not $Workbook) { throw "Set dust.register (the dust suppression register) in project.json, or pass -Workbook" }
+    if (-not [IO.Path]::IsPathRooted($Workbook)) { $Workbook = Join-Path $toolRoot $Workbook }
+}
 $req = Get-Content -LiteralPath $RowsJson -Raw -Encoding UTF8 | ConvertFrom-Json
 $y, $m = ([string]$req.month).Split("-") | ForEach-Object { [int]$_ }
 $nDays = [int]$req.days_in_month

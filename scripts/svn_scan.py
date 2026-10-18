@@ -204,7 +204,7 @@ def main():
         found = collect(extra, set(missing))
         for n, fs in found.items():
             r = build(n, fs, extra)
-            r["notes"].insert(0, "files are outside Quick Access: " + extra)
+            r["notes"].insert(0, "files are outside the records folder: " + extra)
             records.append(r)
         missing = [n for n in missing if n not in found]
     records.sort(key=lambda r: r["no"])

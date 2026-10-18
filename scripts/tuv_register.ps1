@@ -1,5 +1,5 @@
 ﻿# HSE Operations Tool. Copyright (c) 2026 Khaled Almehrzy. All rights reserved. Proprietary: see LICENSE.txt.
-# Updates or adds equipment rows in the TUV register (REG-008, sheet "Equipment TUV") through Excel itself,
+# Updates or adds equipment rows in the TUV register (sheet "Equipment TUV") through Excel itself,
 # so logos and formatting are kept. Backs the register up first. Stops without saving on any mismatch.
 #
 #   tuv_register.ps1 -ChangesJson changes.json

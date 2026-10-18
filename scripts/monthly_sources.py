@@ -4,9 +4,9 @@
     weekly reports (read_weekly.ps1 -> weekly.json)  manpower and man-hours per day, project-to-date hours, TBT, trainings,
                                                      inspections, HSE meetings held
     the tool (export dir)                            the same for days after the last weekly report; photos; events
-    incident register REG-013                        incidents (date, type, WPS, description)
-    PACE registers REG-018 / 019 / 020               consultant SVN / NCR / SOR issued and replied in the month
-    JLL letters (letters.json, read by Claude)       letters received and replies sent, with the date and subject read
+    incident register (incidents.register_013)       incidents (date, type, WPS, description)
+    consultant SVN / NCR / SOR registers             consultant notices issued and replied in the month
+    Engineer's letters (tool, or letters.json)       letters received and replies sent, with the date and subject read
                                                      from each letter (the PDFs are scans, so a file date is not used)
 
 Every value carries its source; anything that has no source is listed under `missing` instead of being estimated.
@@ -15,6 +15,9 @@ import calendar, datetime as dt, json, os, re
 import openpyxl
 from config import CFG
 
+CS, CON, ENG = CFG["contractor_short"], CFG["consultant_short"], CFG.get("pmc", "Engineer")
+LC = CFG.get("letters", {})
+LTR_REF = re.compile(LC.get("ref_pattern", r"LTR-[A-Z0-9]+(?:-[A-Z0-9]+)*-\d{5}"))
 DAYS = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
 
@@ -131,26 +134,27 @@ def compute(month, weekly_json, export_load, letters_json=None):
     # --- incidents from the incident register
     inc = []
     try:
-        ws = openpyxl.load_workbook(os.path.join(os.path.dirname(CFG["svr"]["folder"]), "17. Registers", "Incident Register",
-                                                 "AVK01-WP.03-HSE-REG-013 - Incident Register.xlsx"), data_only=True).worksheets[0]
+        ws = openpyxl.load_workbook(CFG["incidents"]["register_013"], data_only=True).worksheets[0]
         for r in ws.iter_rows(min_row=3, values_only=True):
             d0, kind = cell_date(r[1])
             if d0 and first <= d0 <= last:
-                inc.append({"date": str(d0), "type": str(r[2] or ""), "wps": re.sub(r"\D", "", str(r[3] or "")), "description": str(r[8] or "").strip(), "company": "ACTC"})
+                inc.append({"date": str(d0), "type": str(r[2] or ""), "wps": re.sub(r"\D", "", str(r[3] or "")), "description": str(r[8] or "").strip(), "company": CS})
             elif kind == "date" and d0 and d0.day <= 12:
                 swapped = dt.date(d0.year, d0.day, d0.month)
                 if first <= swapped <= last:
                     out["checks"].append(f"incident register row {r[0]}: date stored as {d0} (could be {swapped}, dd/mm typed into a date cell); not counted")
-        out["sources"]["incidents"] = "REG-013 Incident Register"
+        out["sources"]["incidents"] = os.path.basename(CFG["incidents"]["register_013"])
     except Exception as ex:
         out["missing"].append(f"incident register not read: {ex}")
     out["incidents"] = inc
 
-    # --- consultant notices from the PACE registers
+    # --- consultant notices from the consultant's SVN / NCR / SOR registers
     letters = []
-    for name, rel in (("SVN", r"06. PACE SVN\AVK01-WP.03-HSE-REG-018 PACE SVN Register.xlsx"), ("NCR", r"06.1 PACE NCR\AVK01-WP.03-HSE-REG-019 PACE NCR Register.xlsx"),
-                      ("SOR", r"16. SOR PACE\AVK01-WP.03-HSE-REG-020 PACE SOR Register.xlsx")):
-        path = os.path.join(os.path.dirname(CFG["svr"]["folder"]), rel)
+    for name in ("SVN", "NCR", "SOR"):
+        path = CFG.get(name.lower(), {}).get("register")
+        if not path:
+            out["missing"].append(f"{name} register not set in project.json")
+            continue
         try:
             ws = openpyxl.load_workbook(path, data_only=True).worksheets[0]
         except Exception as ex:
@@ -169,11 +173,11 @@ def compute(month, weekly_json, export_load, letters_json=None):
             subj = (str(r[cs] or "") if cs is not None else "") or ("Safety Observation Report" if name == "SOR" else "")
             state = "Closed" if st == "Closed" else "In Progress" if st.lower().startswith("reply") else "Open"     # the register's status today
             if di and first <= di <= last:
-                letters.append([str(r[0]), subj, CFG.get("consultant_short", "PACE"), "ACTC", di.strftime("%d %b %Y"), state])
+                letters.append([str(r[0]), subj, CON, CS, di.strftime("%d %b %Y"), state])
             if dr and first <= dr <= last:
-                letters.append([f"Reply to {r[0]}", subj, "ACTC", CFG.get("consultant_short", "PACE"), dr.strftime("%d %b %Y"), state])
+                letters.append([f"Reply to {r[0]}", subj, CS, CON, dr.strftime("%d %b %Y"), state])
         out["sources"].setdefault("letters", []).append(os.path.basename(path))
-    # JLL letters: the tool's `consultant` documents of kind LTR (entered after reading each letter), never by file date;
+    # Engineer's letters: the tool's `consultant` documents of kind LTR (entered after reading each letter), never by file date;
     # letters.json only for months before the letters were in the tool
     ltrs = [n for n in export_load("consultant") if str(n.get("kind", "")).upper() == "LTR" and not n.get("example")]
     known = {str(n.get("ref", "")) for n in ltrs}
@@ -181,36 +185,36 @@ def compute(month, weekly_json, export_load, letters_json=None):
         di, dr = cell_date(n.get("issued"))[0], cell_date(n.get("replyDate"))[0]
         st = {"closed": "Closed", "replied": "In Progress"}.get(n.get("status"), "Open")
         if di and first <= di <= last:
-            letters.append([n.get("ref", ""), n.get("subject", ""), n.get("issuedBy", "JLL"), CFG.get("contractor_short", "ACTC"), di.strftime("%d %b %Y"), st])
+            letters.append([n.get("ref", ""), n.get("subject", ""), n.get("issuedBy", ENG), CS, di.strftime("%d %b %Y"), st])
         if dr and first <= dr <= last:
-            letters.append([n.get("replyRef") or f"Reply to {n.get('ref', '')}", n.get("subject", ""), CFG.get("contractor_short", "ACTC"), n.get("issuedBy", "JLL"), dr.strftime("%d %b %Y"), st])
+            letters.append([n.get("replyRef") or f"Reply to {n.get('ref', '')}", n.get("subject", ""), CS, n.get("issuedBy", ENG), dr.strftime("%d %b %Y"), st])
     if ltrs:
-        out["sources"].setdefault("letters", []).append("JLL letters in the tool (consultant, kind LTR)")
+        out["sources"].setdefault("letters", []).append(f"{ENG} letters in the tool (consultant, kind LTR)")
     if ltrs:
-        base = CFG.get("jll_letters") or r"D:\Claude Projects\Quick Access\JLL Letter and reply"
+        base = LC.get("folder", "")
         new = []
         for dp, _, fs in os.walk(base):
             for f in fs:
-                m = re.search(r"JLL-LTR-[A-Z]{2}-[A-Z]{2}-\d{5}", f)
+                m = LTR_REF.search(f)
                 if m and f.lower().endswith(".pdf") and not any(m.group(0) in k for k in known) and \
                         (first - dt.timedelta(days=10)) <= dt.date.fromtimestamp(os.path.getmtime(os.path.join(dp, f))) <= (last + dt.timedelta(days=10)):
                     new.append(os.path.join(dp, f))
         if new:
-            out["missing"].append("JLL letter files not in the tool (read each; the file name may not be the letter's own number): " + "; ".join(new))
+            out["missing"].append(f"{ENG} letter files not in the tool (read each; the file name may not be the letter's own number): " + "; ".join(new))
     elif letters_json and os.path.exists(letters_json):
         for L in json.load(open(letters_json, encoding="utf-8-sig")):
             d0 = dt.date.fromisoformat(L["date"])
             if first <= d0 <= last:
-                letters.append([L["ref"], L.get("subject", ""), L.get("from", "JLL"), L.get("to", "ACTC"), d0.strftime("%d %b %Y"), L.get("status", "In Progress")])
-        out["sources"].setdefault("letters", []).append("JLL letters read one by one (letters.json)")
+                letters.append([L["ref"], L.get("subject", ""), L.get("from", ENG), L.get("to", CS), d0.strftime("%d %b %Y"), L.get("status", "In Progress")])
+        out["sources"].setdefault("letters", []).append(f"{ENG} letters read one by one (letters.json)")
     else:
         cands = []
-        base = CFG.get("jll_letters") or r"D:\Claude Projects\Quick Access\JLL Letter and reply"
+        base = LC.get("folder", "")
         for dp, _, fs in os.walk(base):
             for f in fs:
-                if re.search(r"JLL-LTR|JLL Letter", f) and (first - dt.timedelta(days=10)) <= dt.date.fromtimestamp(os.path.getmtime(os.path.join(dp, f))) <= (last + dt.timedelta(days=10)):
+                if re.search(LC.get("file_words", "LTR"), f) and (first - dt.timedelta(days=10)) <= dt.date.fromtimestamp(os.path.getmtime(os.path.join(dp, f))) <= (last + dt.timedelta(days=10)):
                     cands.append(os.path.join(dp, f))
         if cands:
-            out["missing"].append("JLL letters: read these and write letters.json (ref, date, subject, from, to, status) before making the report: " + "; ".join(cands))
+            out["missing"].append(f"{ENG} letters: read these and write letters.json (ref, date, subject, from, to, status) before making the report: " + "; ".join(cands))
     out["letters"] = letters
     return out

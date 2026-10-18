@@ -1,5 +1,5 @@
 # HSE Operations Tool. Copyright (c) 2026 Khaled Almehrzy. All rights reserved. Proprietary: see LICENSE.txt.
-# Writes incident rows to the incident register REG-013, the minor incident log REG-014 or the CAPA register REG-011,
+# Writes incident rows to the incident register, the minor incident log or the CAPA registerEG-011,
 # through Excel itself (formatting, formulas and the dashboard are kept). Backs the workbook up to backups\ first.
 # Stops without saving on any mismatch.
 #
@@ -10,7 +10,7 @@
 #    "append": [ {"A": "6", "B": "date:2026-10-14", "C": "FAC", ...}, ... ],        new rows after the last data row
 #    "update": [ {"key": "6", "set": {"L": "date:2026-10-17", "P": "Closed"}} ] }   rows found by column A
 # Values are text; "date:YYYY-MM-DD" is written as a date in the register's own format. A new row takes the format of
-# the row above it and is inserted, so a footer below the data (REG-011 "Prepared By") moves down.
+# the row above it and is inserted, so a footer below the data (e.g. "Prepared By") moves down.
 param(
     [Parameter(Mandatory)][string]$RowsJson,
     [string]$BackupDir = "",

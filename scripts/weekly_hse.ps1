@@ -1,5 +1,5 @@
 ﻿# HSE Operations Tool. Copyright (c) 2026 Khaled Almehrzy. All rights reserved. Proprietary: see LICENSE.txt.
-# Writes the weekly HSE report (HSE-FRM-00015) through Excel: copies the previous week's report (values.json "source")
+# Writes the weekly HSE report (the project's weekly form) through Excel: copies the previous week's report (values.json "source")
 # to the new file ("out"), then writes this week's numbers, carries month (when the week is in the same month) and
 # project-to-date totals forward, and replaces the detail sheets. Never overwrites a file. values.json comes from weekly_hse.py.
 #

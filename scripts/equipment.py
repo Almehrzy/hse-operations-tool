@@ -2,7 +2,7 @@
 """Equipment tab: checklist settings, equipment list from the TUV register, and filled checklists on the house forms.
 
     python equipment.py settings <out.json>          settings/equipment document for the page (checklists per family, colour code)
-    python equipment.py seed <out_dir>               one JSON per equipment on site, from the TUV register (REG-008)
+    python equipment.py seed <out_dir>               one JSON per equipment on site, from the TUV register
     python equipment.py monthly <request.json> <out.xlsx>   request: {"inspection": doc, "equipment": doc, "photos": [local jpg]}
     python equipment.py daily <request.json> <out.xlsx>     request: {"equipment": doc, "month": "YYYY-MM", "inspections": [daily docs]}
     python equipment.py log <request.json> <out.xlsx> [--replace]   request: {"month": "YYYY-MM", "rows": [inspection docs + plateSticker, company, file]}
@@ -144,7 +144,7 @@ def cmd_seed(out_dir):
         doc = {"code": code, "regNo": int(no), "type": clean(typ).upper(), "family": family_of(typ),
                "serial": clean(row[2]), "sticker": clean(row[3]), "make": clean(row[4]), "plate": clean(row[5]),
                "certCo": clean(row[6]), "certNo": clean(row[7]), "certDate": as_date(row[8]), "certExpiry": as_date(row[9]),
-               "company": clean(row[10]), "status": "unverified", "source": "REG-008",
+               "company": clean(row[10]), "status": "unverified", "source": "register",
                "createdAt": dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z")}
         json.dump(doc, open(os.path.join(out_dir, code.lower() + ".json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         n += 1

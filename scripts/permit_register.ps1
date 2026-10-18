@@ -1,12 +1,12 @@
 # HSE Operations Tool. Copyright (c) 2026 Khaled Almehrzy. All rights reserved. Proprietary: see LICENSE.txt.
-# Adds issued permits to the permit register (REG-009, one sheet per month), or records their closing date,
+# Adds issued permits to the permit register (one sheet per month), or records their closing date,
 # through Excel itself so logos and formatting are kept. Backs the register up first. Stops without saving on any mismatch.
 #
 #   permit_register.ps1 -RowsJson rows.json            add rows (a missing month sheet is made from the last sheet's layout)
 #   permit_register.ps1 -RowsJson rows.json -Close     set PERMIT CLOSED (column E) on rows already in the register
 #
 # rows.json: a list of
-#   {"sheet": "October", "type": "HOT WORK", "no": "139 A", "date": "2026-10-17", "start": "06:00", "end": "17:00", "company": "ACTC",
+#   {"sheet": "October", "type": "HOT WORK", "no": "139 A", "date": "2026-10-17", "start": "06:00", "end": "17:00", "company": "SCC",
 #    "area": "UP 03", "description": "CUTTING WELDING GRINDING", "issuer": "KHALID AL MOOR", "receiver": "SALAH YOUSAF",
 #    "contact": "544213838", "hse": "ZUHAIB"}
 # with -Close: {"sheet": "October", "type": "HOT WORK", "no": "139 A", "area": "UP 03", "closed": "2026-10-23"}

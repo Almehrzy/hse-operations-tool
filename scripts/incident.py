@@ -1,5 +1,5 @@
 # HSE Operations Tool. Copyright (c) 2026 Khaled Almehrzy. All rights reserved. Proprietary: see LICENSE.txt.
-"""Incident reports on the project's forms, from the page's Incidents tab (procedure AVK01-JLL-HSE-PRC-0001).
+"""Incident reports on the project's forms, from the page's Incidents tab (the project's incident procedure).
 
     python incident.py plan <incident.json> [--code PD]                 numbers, folder, deadlines and register rows
     python incident.py initial <request.json> <out.docx>                Initial Incident Report (FRM-00012, house copy of INI-PD-00001)
@@ -24,14 +24,14 @@ to paste as they are):
  "actions": [{"no", "cause", "action", "owner", "due", "status"}]  corrective actions (default: the linked CAPA documents)
  "photos": [{"file", "caption"}]              downloaded incident photos, in order
  "authority_notified": "YYYY-MM-DD"            optional
- "capa_doc": "AVK01-WP.03-HSE-CAPA-003"       CAPA plan number (plan proposes the next one)
- "reg_no": 6                                  the incident's No. in REG-013 (set when the initial row is written)
+ "capa_doc": "XYZ01-P1-HSE-CAPA-003"         CAPA plan number (plan proposes the next one)
+ "reg_no": 6                                  the incident's No. in the incident register (set when the initial row is written)
 Signature images in the house copies are removed: each person signs the printed or PDF copy. Never overwrites a file.
 
 Registers (rows for incident_register.ps1, which writes them through Excel with a backup):
-    python incident.py regrows <request.json> initial|investigation|closed <rows.json>    REG-013 row: add, then fill
-    python incident.py regrows <request.json> minor <rows.json>                           REG-014 row (minor events)
-    python incident.py capa-rows <capa export dir> <incidents export dir> <rows.json>    REG-011: new and changed CAPA
+    python incident.py regrows <request.json> initial|investigation|closed <rows.json>    incident register row: add, then fill
+    python incident.py regrows <request.json> minor <rows.json>                           minor incident log row (minor events)
+    python incident.py capa-rows <capa export dir> <incidents export dir> <rows.json>    CAPA register: new and changed CAPA
 """
 import datetime as dt, glob, io, json, os, re, sys, zipfile
 from xml.sax.saxutils import escape
@@ -41,6 +41,7 @@ import monthly_report as MR
 import svn_reply as SR
 
 IC = CFG["incidents"]
+TREF = IC.get("template_refs", {})       # the house copy's own numbers, replaced in the footers
 PLACEHOLDER = SR.PLACEHOLDER
 
 
@@ -104,7 +105,7 @@ def cmd_plan(inc_json, *args):
     if wps is None:
         notes.append("WPS not set by HSE yet (the page suggests one from the type): ask the safety officer before issuing")
     if formal is False:
-        notes.append("classified as minor: REG-014 (minor incident log) only, no formal report")
+        notes.append("classified as minor: minor incident log only, no formal report")
     w = wps or 2
     due = {"notify": at + dt.timedelta(minutes=15), "initial": at + dt.timedelta(hours=24), "investigation": at + dt.timedelta(days=5 if w >= 4 else 3)}
     if x.get("notifiedAt"):
@@ -112,7 +113,7 @@ def cmd_plan(inc_json, *args):
         if na > due["notify"]:
             notes.append(f"consultant and Engineer were notified at {na:%H:%M}, after the 15 minutes")
     else:
-        notes.append("no notification time recorded: ask when PACE and JLL were told")
+        notes.append(f"no notification time recorded: ask when {CFG['consultant_short']} and {CFG.get('pmc', 'the Engineer')} were told")
     if w >= 4:
         notes.append("WPS4-5: the Engineer joins the investigation; a safety alert is due within 48 h of the report's approval")
     folder = os.path.join(IC["folder"], f"{IC['type_text'].get(x.get('type'), 'Incident')} {at:%d-%m-%Y}")
@@ -243,6 +244,9 @@ class Doc:
         return False
 
     def footer_replace(self, old, new):
+        if not old:
+            self.notes.append(f"footer number not replaced (set incidents.template_refs in project.json): write {new} in the footer")
+            return
         for n in list(self.files):
             if re.match(r"word/(header|footer)\d*\.xml", n):
                 s = self.files[n].decode("utf-8")
@@ -462,7 +466,7 @@ def cmd_investigation(req_json, out):
     att = [f"{R['wit']}{'-' + str(i + 1).zfill(2) if len(witnesses(req)) > 1 else ''} - Witness Statement" for i in range(len(witnesses(req)))]
     d.below("ATTACHMENTS", att or ["Photographic evidence"])
     _annex(d, req.get("photos") or [])
-    d.footer_replace("AVK01-ACTC-WP.03-HSE-INV-PD-00001", R["inv"])
+    d.footer_replace(TREF.get("investigation", ""), R["inv"])
     d.save(out)
 
 
@@ -539,7 +543,7 @@ def cmd_witness(req_json, n, out):
     d.below("TRANSLATOR DETAILS", w.get("translator") or "N/A")
     d.below("STATEMENT RECORDED BY", f"Name: {w.get('recorded_by') or IC['people']['hse_engineer'][0]}")
     d.below("STATEMENT", w.get("statement") or "Signed statement attached.", exact=True)
-    d.footer_replace("AVK01-ACTC-WP.03-HSE-WIT-PD-00001", ref)
+    d.footer_replace(TREF.get("witness", ""), ref)
     d.save(out)
 
 
@@ -551,7 +555,7 @@ def cmd_capa(req_json, out):
     doc_no = req.get("capa_doc") or next_capa_doc()
     d = Doc(IC["templates"]["capa"])
     rdate = req.get("report_date") or str(dt.date.today())
-    for label, value in (("Incident Reference", R["ini"]), ("Document Number", doc_no), ("Project", IC["project_title"].replace("WP03", "WP-03")),
+    for label, value in (("Incident Reference", R["ini"]), ("Document Number", doc_no), ("Project", IC.get("capa_project_title", IC["project_title"])),
                          ("Rev No", "00"), ("Incident", f"{T(req, 'title', type_text(req))} ({IC['codes'].get(req.get('type'), '')})"),
                          ("Incident date", long(req["date"])), ("Contractor", CFG["contractor_short"]), ("CAPA date", long(rdate))):
         d.beside(label, value)
@@ -562,11 +566,11 @@ def cmd_capa(req_json, out):
     _replace_list_after(d, "To ensure the effectiveness", eff)
     if T(req, "closure"):
         closure = T(req, "closure")
-        d.x = MR.replace_paras(d.x, lambda s: s.strip().startswith("Ahmadiah Contracting"), lambda s: closure)
+        d.x = MR.replace_paras(d.x, lambda s: bool(TREF.get("capa_closure_starts")) and s.strip().startswith(TREF["capa_closure_starts"]), lambda s: closure)
     else:
         d.notes.append("closure statement kept from the house copy: write 'closure' for this incident")
     d.blank_drawings_in(lambda labels, r: any("<w:drawing" in d.x[c.start:c.end] for c in r))
-    d.footer_replace("AVK01-WP.03-HSE-CAPA-002", doc_no)
+    d.footer_replace(TREF.get("capa", ""), doc_no)
     d.save(out)
 
 
@@ -720,7 +724,7 @@ def _reg013_last():
     import openpyxl
     ws = openpyxl.load_workbook(IC["register_013"], data_only=True)["Incident Details"]
     nos = [r[0] for r in ws.iter_rows(min_row=3, values_only=True) if isinstance(r[0], (int, float))]
-    last_g = None          # the contractor as the register writes it (e.g. "Ahmadiah- Road Improvement")
+    last_g = None          # the contractor as the register writes it (its own wording, kept)
     for r in ws.iter_rows(min_row=3, values_only=True):
         if r[6]:
             last_g = r[6]
@@ -728,7 +732,7 @@ def _reg013_last():
 
 
 def cmd_regrows(req_json, stage, out):
-    """Rows for REG-013 (stages: initial, investigation, closed) or REG-014 (stage: minor)."""
+    """Rows for the incident register (stages: initial, investigation, closed) or the minor incident log (stage: minor)."""
     req = load(req_json)
     R = refs(req) if req.get("ref_no") else {}
     wps = int(req.get("wps") or 2)
@@ -772,11 +776,11 @@ def cmd_regrows(req_json, stage, out):
     print(json.dumps(rows, ensure_ascii=False, indent=1))
 
 
-CAPA_SOURCE_TEXT = {"audit_internal": "Internal Audit", "audit_pace": "PACE Audit", "audit_jll": "JLL Audit", "mgmt": "Management Review", "incident": "Incident Investigation"}
+CAPA_SOURCE_TEXT = {"audit_internal": "Internal Audit", "audit_pace": f"{CFG['consultant_short']} Audit", "audit_jll": f"{CFG.get('pmc', 'Engineer')} Audit", "mgmt": "Management Review", "incident": "Incident Investigation"}
 
 
 def cmd_capa_rows(capa_dir, inc_dir, out):
-    """REG-011 rows for CAPA documents from the page: new ones appended, changed ones updated (by their Finding ID).
+    """CAPA register rows for CAPA documents from the page: new ones appended, changed ones updated (by their Finding ID).
     Column C carries the register's source names, which its dashboard counts; the source reference goes in M."""
     from weekly_hse import load as wload
     caps = wload(os.path.dirname(capa_dir.rstrip("\\/")), os.path.basename(capa_dir.rstrip("\\/")))

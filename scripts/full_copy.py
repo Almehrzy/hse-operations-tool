@@ -84,7 +84,7 @@ def main():
         lines.append(f"{sha(p)}  {size:>10}  {f}")
     lines += ["", f"{len(files)} files, {total:,} bytes"]
     readme = ("HOW TO USE THIS COPY / طريقة استخدام هذه النسخة\n\n"
-              "1. Unzip into a folder (for example D:\\Claude HSE\\Site Observations Tool).\n"
+              "1. Unzip into a folder (for example a folder named HSE Operations Tool).\n"
               "2. The page is site-observations.html: publish it as a new artifact, or update the existing one, with Claude.\n"
               "3. The database is in backups\\db\\<date>\\<collection>\\<id>.json and the photos in backups\\db\\<date>\\assets\\.\n"
               "   Restore: ask Claude to write each file back with ArtifactData (batch set), as in CLAUDE.md 'Database backup'.\n"

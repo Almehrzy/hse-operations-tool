@@ -1028,7 +1028,7 @@ ul{list-style:none;margin:0;padding:0}
       pDue: 'موعد الإغلاق', pDueHours: 'متبقٍ {n} ساعة', pDueDays: 'متبقٍ {n} يوم', pLate: 'تجاوز الموعد ({d})', pLateShort: 'متأخر',
       pLateItems: '{n} متأخرة', pSorItems: 'ملاحظات التقرير', pRec: 'التوصية',
       pRiskE: 'E · فوري', pRiskH: 'H · خلال 24 ساعة', pRiskM: 'M · خلال 48 ساعة', pRiskL: 'L · خلال 72 ساعة',
-      pIntro: 'إنذارات الاستشاري وتقارير عدم المطابقة (NCR) والملاحظات (SOR) ورسائل المهندس (JLL) المفتوحة. لكل طلب أو ملاحظة ارفع صورة بعد التنفيذ ووصف ما تم، ومعها صورة اجتماع التوعية وكشف الحضور. من هذه الأدلة يُكتب الرد.',
+      pIntro: 'إنذارات الاستشاري وتقارير عدم المطابقة (NCR) والملاحظات (SOR) ورسائل المهندس المفتوحة. لكل طلب أو ملاحظة ارفع صورة بعد التنفيذ ووصف ما تم، ومعها صورة اجتماع التوعية وكشف الحضور. من هذه الأدلة يُكتب الرد.',
       pStOpen: 'بانتظار الأدلة', pStReady: 'الأدلة مكتملة', pStReplied: 'أُرسل الرد', pStClosed: 'مغلق', pActive: 'الجارية',
       pActC: 'C · فوري', pActB: 'B · يحتاج نظر', pActA: 'A',
       pEvidence: 'الأدلة {d} من {t}', pOpenDays: 'منذ {n} يوم',
@@ -1134,7 +1134,7 @@ ul{list-style:none;margin:0;padding:0}
       teamHint: 'كل من يفتح الأداة يظهر هنا بعد أن يكتب اسمه. اختر دور كل شخص، والأزرار تظهر له حسب صلاحيات دوره. من لم يُحدَّد دوره يُعامل كمشرف.',
       teamNote: 'مهم عند المشاركة (زر Share): شارك الفريق كله كـ Contributor (مسؤولو السلامة والمشرفون)، ومن يطّلع فقط كـ Viewer، ولا تعطِ Editor لأحد غيرك: الـ Editor يستطيع نشر نسخة معدّلة من الأداة. لا تفعّل المشاركة بالرابط العام. الأدوار يحددها مالك الأداة وحده، والخادم يضمن أن كل موافقة كتبها صاحبها، ويتحقق Claude من دوره قبل أي إصدار. عند مغادرة شخص المشروع: احذفه من Share وغيّر دوره إلى "اطلاع فقط".',
       teamNotEditor: 'دورك {r}، لكن الأداة مشاركة معك كـ Contributor، فتعمل كمشرف. اطلب من مالك الأداة مشاركتها معك كـ Editor.',
-      backupBtn: 'تنزيل نسخة احتياطية كاملة', backupBusy: 'جارٍ تجهيز النسخة…', backupDone: 'نُزّلت النسخة الاحتياطية ({n} سجل)', backupHint: 'ملف JSON بكل بيانات الأداة (بدون الصور). احفظه في Quick Access. Claude يأخذ أيضاً نسخة أسبوعية.',
+      backupBtn: 'تنزيل نسخة احتياطية كاملة', backupBusy: 'جارٍ تجهيز النسخة…', backupDone: 'نُزّلت النسخة الاحتياطية ({n} سجل)', backupHint: 'ملف JSON بكل بيانات الأداة (بدون الصور). احفظه في مجلد سجلات المشروع. Claude يأخذ أيضاً نسخة أسبوعية.',
       permsTitle: 'ماذا يستطيع كل دور', permsNone: 'الاطلاع فقط',
       roles: { admin: 'مدير الأداة', hse_manager: 'مدير السلامة', hse_officer: 'مهندس / مسؤول سلامة', supervisor: 'مشرف', viewer: 'اطلاع فقط' },
       perms: { obsCreate: 'تسجيل ملاحظة', obsClose: 'إغلاق ملاحظة', obsEdit: 'تعديل ملاحظة وإعادة فتحها', del: 'الحذف', vioCreate: 'تسجيل مخالفة عامل',
@@ -1162,7 +1162,7 @@ ul{list-style:none;margin:0;padding:0}
       incDescHint: 'اكتب ما حدث بالترتيب: النشاط، ماذا حصل، ومن تأثر. لا تكتب أسباباً غير مؤكدة.',
       incPersons: 'المصابون / المعنيون', incPerson: 'شخص {n}', incPersonAdd: 'أضف شخصاً', incPName: 'الاسم', incPId: 'رقم الإقامة / الملف', incPCompany: 'الشركة', incPTrade: 'المهنة', incPInjury: 'الإصابة (إن وجدت)',
       incThird: 'طرف ثالث / مركبة', incThirdPh: 'مثال: سيارة عامة، لوحة BHG 180',
-      incAction: 'الإجراء الفوري', incNotified: 'وقت إبلاغ الاستشاري والمهندس', incNotifiedTo: 'من أُبلغ', incNotifiedToPh: 'مثال: PACE HSE، JLL HSE',
+      incAction: 'الإجراء الفوري', incNotified: 'وقت إبلاغ الاستشاري والمهندس', incNotifiedTo: 'من أُبلغ', incNotifiedToPh: 'مثال: HSE الاستشاري، HSE المهندس',
       incPhotos: 'صور الحادث', incSave: 'حفظ البلاغ', incSaved: 'حُفظ البلاغ', incNeed: 'أكمل: {f}', incFuture: 'التاريخ في المستقبل.',
       incDetailTitle: 'حادث', incGone: 'لم يعد هذا الحادث موجوداً.', incWhen: 'التاريخ والوقت', incReportedBy: 'أبلغ عنه', incClassBy: 'صنّفه',
       incIni: 'التقرير المبدئي', incInv: 'تقرير التحقيق', incClosedL: 'أُغلق',
@@ -1170,7 +1170,7 @@ ul{list-style:none;margin:0;padding:0}
       incWitStatement: 'الإفادة كما قالها الشاهد', incWitPhoto: 'صورة الإفادة الموقّعة', incWitSave: 'حفظ الإفادة', incWitSaved: 'حُفظت الإفادة',
       incWitNeed: 'اكتب اسم الشاهد.', incWitNeedText: 'اكتب الإفادة أو أرفق صورة الإفادة الموقّعة.',
       incClassT: 'تصنيف السلامة', incWpsL: 'أسوأ خطورة محتملة (WPS)', incSuggested: 'المقترح من نوع الحادث: WPS{n}',
-      incFormal: 'يحتاج تقريراً رسمياً (مبدئي + تحقيق) وتسجيلاً في سجل الحوادث REG-013',
+      incFormal: 'يحتاج تقريراً رسمياً (مبدئي + تحقيق) وتسجيلاً في سجل الحوادث',
       incClassSave: 'حفظ التصنيف', incClassSaved: 'حُفظ التصنيف',
       incInvBtn: 'التحقيق', incInvEdit: 'تعديل التحقيق',
       incCapaT: 'الإجراءات التصحيحية والوقائية', incCapaAdd: 'أضف إجراءً',
@@ -1187,11 +1187,11 @@ ul{list-style:none;margin:0;padding:0}
       capaKind: 'نوع الإجراء', capaAction: 'الإجراء المطلوب', capaOwner: 'المسؤول', capaDue: 'الموعد النهائي', capaSave: 'حفظ الإجراء', capaSaved: 'حُفظ الإجراء', capaNeed: 'أكمل: {f}',
       capaK: { corrective: 'تصحيحي', preventive: 'وقائي' },
       capaS: { open: 'مفتوح', done: 'نُفّذ — بانتظار التحقق', verified: 'تم التحقق' },
-      capaSrc: { incident: 'حادث', svn: 'إنذار SVN', ncr: 'عدم مطابقة NCR', sor: 'ملاحظات SOR', ltr: 'رسالة المهندس (JLL)', audit_internal: 'تدقيق داخلي', audit_pace: 'تدقيق PACE', audit_jll: 'تدقيق JLL', mgmt: 'مراجعة الإدارة', observation: 'ملاحظة سلامة', other: 'أخرى' },
+      capaSrc: { incident: 'حادث', svn: 'إنذار SVN', ncr: 'عدم مطابقة NCR', sor: 'ملاحظات SOR', ltr: 'رسالة المهندس', audit_internal: 'تدقيق داخلي', audit_pace: 'تدقيق الاستشاري', audit_jll: 'تدقيق المهندس', mgmt: 'مراجعة الإدارة', observation: 'ملاحظة سلامة', other: 'أخرى' },
       capaDoneT: 'تسجيل التنفيذ', capaDoneNote: 'ما تم تنفيذه', capaDonePhoto: 'صورة الدليل', capaDoneBtn: 'تأكيد التنفيذ', capaDoneSaved: 'سُجّل التنفيذ، بانتظار تحقق السلامة', capaDoneNeed: 'اكتب ما تم تنفيذه.',
       capaVerifyT: 'التحقق من الفعالية', capaVerifyNote: 'ملاحظة التحقق', capaEffective: 'فعّال، أغلق الإجراء', capaNotEffective: 'غير فعّال، أعد فتحه',
       capaVerified: 'تم التحقق وأُغلق الإجراء', capaReopened: 'أُعيد فتح الإجراء', capaReopenNeed: 'اكتب لماذا الإجراء غير فعّال.',
-      capaDoneBy: 'نفّذه', capaVerifiedBy: 'تحقق منه', capaReopenedL: 'أُعيد فتحه', capaRegId: 'رقم سجل CAPA (REG-011)', capaOpenSrc: 'افتح المصدر', capaEdit: 'تعديل',
+      capaDoneBy: 'نفّذه', capaVerifiedBy: 'تحقق منه', capaReopenedL: 'أُعيد فتحه', capaRegId: 'رقم سجل CAPA', capaOpenSrc: 'افتح المصدر', capaEdit: 'تعديل',
       capaEmptyT: 'لا إجراءات', capaEmpty: 'أضف الإجراءات التصحيحية والوقائية من الحوادث والتدقيق وإنذارات الاستشاري.',
       logIncMoved: 'الحوادث تُسجَّل الآن من تبويب "الحوادث".',
       xHead: ['رقم', 'تاريخ التسجيل', 'النوع', 'الفئة', 'الخطورة', 'الموقع', 'الجهة المعنية', 'الوصف', 'الإجراء المطلوب', 'المسؤول', 'الموعد النهائي', 'الحالة', 'أيام التأخير', 'تاريخ الإغلاق', 'ما تم تنفيذه', 'المُبلِّغ', 'ملاحظات'],
@@ -1270,7 +1270,7 @@ ul{list-style:none;margin:0;padding:0}
       pDue: 'Close-out due', pDueHours: '{n} h left', pDueDays: '{n} days left', pLate: 'Past due ({d})', pLateShort: 'Overdue',
       pLateItems: '{n} overdue', pSorItems: 'Report observations', pRec: 'Recommendation',
       pRiskE: 'E · Immediately', pRiskH: 'H · Within 24 h', pRiskM: 'M · Within 48 h', pRiskL: 'L · Within 72 h',
-      pIntro: 'Open consultant notices (SVN), non-compliance reports (NCR), observation reports (SOR) and the Engineer’s (JLL) letters. For each requirement or observation, upload a photo after the fix and what was done, plus the toolbox talk photo and attendance sheet. The reply is written from this evidence.',
+      pIntro: 'Open consultant notices (SVN), non-compliance reports (NCR), observation reports (SOR) and the Engineer’s letters. For each requirement or observation, upload a photo after the fix and what was done, plus the toolbox talk photo and attendance sheet. The reply is written from this evidence.',
       pStOpen: 'Collecting evidence', pStReady: 'Evidence complete', pStReplied: 'Reply submitted', pStClosed: 'Closed', pActive: 'Active',
       pActC: 'C · Immediate', pActB: 'B · Consider', pActA: 'A',
       pEvidence: 'Evidence {d} of {t}', pOpenDays: 'open {n} days',
@@ -1376,7 +1376,7 @@ ul{list-style:none;margin:0;padding:0}
       teamHint: 'Everyone who opens the tool appears here once they enter their name. Choose each person’s role; the buttons they see follow that role’s permissions. Anyone without a role is treated as a supervisor.',
       teamNote: 'Important when sharing (Share button): share the whole team as Contributor (safety officers and supervisors) and read-only people as Viewer, and give Editor to nobody but yourself: an Editor can publish a changed version of the tool. Do not turn on sharing by public link. Only the tool’s owner sets roles; the server guarantees each approval was written by its author, and Claude checks that person’s role before issuing anything. When someone leaves the project, remove them from Share and set their role to View only.',
       teamNotEditor: 'Your role is {r}, but the tool is shared with you as Contributor, so you work as a supervisor. Ask the tool’s owner to share it with you as Editor.',
-      backupBtn: 'Download a full backup', backupBusy: 'Preparing the backup…', backupDone: 'Backup downloaded ({n} records)', backupHint: 'A JSON file with all the tool’s data (photos not included). Keep it in Quick Access. Claude also takes a weekly copy.',
+      backupBtn: 'Download a full backup', backupBusy: 'Preparing the backup…', backupDone: 'Backup downloaded ({n} records)', backupHint: 'A JSON file with all the tool’s data (photos not included). Keep it in the project’s records folder. Claude also takes a weekly copy.',
       permsTitle: 'What each role can do', permsNone: 'View only',
       roles: { admin: 'Tool admin', hse_manager: 'HSE manager', hse_officer: 'HSE engineer / officer', supervisor: 'Supervisor', viewer: 'View only' },
       perms: { obsCreate: 'Record an observation', obsClose: 'Close an observation', obsEdit: 'Edit or reopen an observation', del: 'Delete', vioCreate: 'Record a worker violation',
@@ -1404,7 +1404,7 @@ ul{list-style:none;margin:0;padding:0}
       incDescHint: 'Write what happened in order: the activity, what occurred and who was affected. Do not write causes that are not confirmed.',
       incPersons: 'Injured / persons involved', incPerson: 'Person {n}', incPersonAdd: 'Add a person', incPName: 'Name', incPId: 'Iqama / file no.', incPCompany: 'Company', incPTrade: 'Trade', incPInjury: 'Injury (if any)',
       incThird: 'Third party / vehicle', incThirdPh: 'e.g. public car, plate BHG 180',
-      incAction: 'Immediate action', incNotified: 'Consultant and Engineer notified at', incNotifiedTo: 'Notified to', incNotifiedToPh: 'e.g. PACE HSE, JLL HSE',
+      incAction: 'Immediate action', incNotified: 'Consultant and Engineer notified at', incNotifiedTo: 'Notified to', incNotifiedToPh: 'e.g. consultant HSE, Engineer HSE',
       incPhotos: 'Incident photos', incSave: 'Save report', incSaved: 'Report saved', incNeed: 'Fill in: {f}', incFuture: 'The date is in the future.',
       incDetailTitle: 'Incident', incGone: 'This incident no longer exists.', incWhen: 'Date and time', incReportedBy: 'Reported by', incClassBy: 'Classified by',
       incIni: 'Initial report', incInv: 'Investigation report', incClosedL: 'Closed',
@@ -1412,7 +1412,7 @@ ul{list-style:none;margin:0;padding:0}
       incWitStatement: 'Statement in the witness’s words', incWitPhoto: 'Photo of the signed statement', incWitSave: 'Save statement', incWitSaved: 'Statement saved',
       incWitNeed: 'Write the witness’s name.', incWitNeedText: 'Write the statement or attach a photo of the signed statement.',
       incClassT: 'Safety classification', incWpsL: 'Worst potential severity (WPS)', incSuggested: 'Suggested from the incident type: WPS{n}',
-      incFormal: 'Needs a formal report (initial + investigation) and an entry in the incident register REG-013',
+      incFormal: 'Needs a formal report (initial + investigation) and an entry in the incident register',
       incClassSave: 'Save classification', incClassSaved: 'Classification saved',
       incInvBtn: 'Investigation', incInvEdit: 'Edit investigation',
       incCapaT: 'Corrective and preventive actions', incCapaAdd: 'Add an action',
@@ -1429,11 +1429,11 @@ ul{list-style:none;margin:0;padding:0}
       capaKind: 'Action type', capaAction: 'Action required', capaOwner: 'Responsible', capaDue: 'Target date', capaSave: 'Save action', capaSaved: 'Action saved', capaNeed: 'Fill in: {f}',
       capaK: { corrective: 'Corrective', preventive: 'Preventive' },
       capaS: { open: 'Open', done: 'Done, awaiting verification', verified: 'Verified' },
-      capaSrc: { incident: 'Incident', svn: 'SVN', ncr: 'NCR', sor: 'SOR', ltr: 'Engineer’s letter (JLL)', audit_internal: 'Internal audit', audit_pace: 'PACE audit', audit_jll: 'JLL audit', mgmt: 'Management review', observation: 'Safety observation', other: 'Other' },
+      capaSrc: { incident: 'Incident', svn: 'SVN', ncr: 'NCR', sor: 'SOR', ltr: 'Engineer’s letter', audit_internal: 'Internal audit', audit_pace: 'Consultant audit', audit_jll: 'Engineer audit', mgmt: 'Management review', observation: 'Safety observation', other: 'Other' },
       capaDoneT: 'Record as done', capaDoneNote: 'What was done', capaDonePhoto: 'Evidence photo', capaDoneBtn: 'Confirm done', capaDoneSaved: 'Recorded as done, awaiting HSE verification', capaDoneNeed: 'Write what was done.',
       capaVerifyT: 'Verify effectiveness', capaVerifyNote: 'Verification note', capaEffective: 'Effective, close the action', capaNotEffective: 'Not effective, reopen it',
       capaVerified: 'Verified and closed', capaReopened: 'Action reopened', capaReopenNeed: 'Write why the action did not work.',
-      capaDoneBy: 'Done by', capaVerifiedBy: 'Verified by', capaReopenedL: 'Reopened', capaRegId: 'CAPA register no. (REG-011)', capaOpenSrc: 'Open the source', capaEdit: 'Edit',
+      capaDoneBy: 'Done by', capaVerifiedBy: 'Verified by', capaReopenedL: 'Reopened', capaRegId: 'CAPA register no.', capaOpenSrc: 'Open the source', capaEdit: 'Edit',
       capaEmptyT: 'No actions', capaEmpty: 'Add the corrective and preventive actions from incidents, audits and consultant notices.',
       logIncMoved: 'Incidents are now recorded in the Incidents tab.',
       xHead: ['No.', 'Recorded on', 'Type', 'Category', 'Severity', 'Location', 'Party concerned', 'Description', 'Action required', 'Responsible', 'Due date', 'Status', 'Days overdue', 'Closed on', 'Action taken', 'Reported by', 'Notes'],
@@ -1468,7 +1468,7 @@ ul{list-style:none;margin:0;padding:0}
     [18, 'Road safety violation', 'مخالفة السلامة المرورية'], [19, 'Others', 'أخرى'], [20, 'Safety protocols and procedures', 'إجراءات وقواعد السلامة']
   ];
   var DEFAULT_TRADES = ['Labor', 'Helper', 'Carpenter', 'Steel Fixer', 'Scaffolder', 'Welder', 'Operator', 'Driver', 'Flagman', 'Foreman', 'Supervisor', 'Engineer', 'Surveyor'];
-  var settings = { projectName: '', consultant: '', matrix: DEFAULT_MATRIX, companies: [], trades: DEFAULT_TRADES, categories: [] };
+  var settings = { projectName: '', consultant: '', engineer: '', matrix: DEFAULT_MATRIX, companies: [], trades: DEFAULT_TRADES, categories: [] };
   function applySettings(d) {
     d = d || {};
     var m = Array.isArray(d.matrix) ? d.matrix.map(function (x) {
@@ -1477,6 +1477,7 @@ ul{list-style:none;margin:0;padding:0}
     settings.projectName = String(d.projectName || '');
     state.permOverride = d.permissions && typeof d.permissions === 'object' ? d.permissions : null;
     settings.consultant = String(d.consultant || '');
+    settings.engineer = String(d.engineer || '');
     settings.matrix = m.length ? m : DEFAULT_MATRIX;
     settings.companies = Array.isArray(d.companies) ? d.companies.map(String) : [];
     settings.trades = Array.isArray(d.trades) && d.trades.length ? d.trades.map(String) : DEFAULT_TRADES;
@@ -2228,7 +2229,7 @@ ul{list-style:none;margin:0;padding:0}
   function findNotice(id) { for (var i = 0; i < state.notices.length; i++) if (state.notices[i].id === id) return state.notices[i]; return null; }
   // Four kinds of document: SVN (violation notice) and NCR (non-compliance report) carry a list of requirements;
   // SOR (observation report) carries items, each with its own risk level and close-out time; LTR is a letter from the
-  // Engineer (JLL), with what it asks for as requirements and its response date as dueDate (no TBT asked).
+  // Engineer (PMC), with what it asks for as requirements and its response date as dueDate (no TBT asked).
   function kindOf(n) { var k = String(n.kind || 'SVN').toUpperCase(); return ['SVN', 'NCR', 'SOR', 'LTR'].indexOf(k) !== -1 ? k : 'SVN'; }
   function reqsOf(n) { return Array.isArray(n.requirements) ? n.requirements : []; }
   function itemsOf(n) { return Array.isArray(n.items) ? n.items : []; }
@@ -2307,7 +2308,7 @@ ul{list-style:none;margin:0;padding:0}
     if (!c) return null;
     return h('span', { class: c === 'C' ? 'tag danger' : c === 'B' ? 'tag wait' : 'tag', text: t(c === 'C' ? 'pActC' : c === 'B' ? 'pActB' : 'pActA') });
   }
-  function svnShort(n) { return kindOf(n) === 'LTR' ? (n.issuedBy || 'JLL') + ' ' + String(n.no || '').padStart(5, '0') : kindOf(n) + ' ' + String(n.no || '').padStart(3, '0'); }
+  function svnShort(n) { return kindOf(n) === 'LTR' ? (n.issuedBy || settings.engineer || 'LTR') + ' ' + String(n.no || '').padStart(5, '0') : kindOf(n) + ' ' + String(n.no || '').padStart(3, '0'); }
   function meterEl(c) { return h('span', { class: 'meter', role: 'img', 'aria-label': t('pEvidence', { d: c.done, t: c.total }) }, h('u', { style: 'width:' + c.pct + '%' })); }
 
   function renderPace() {
@@ -3492,11 +3493,11 @@ ul{list-style:none;margin:0;padding:0}
   }
 
   // ---- daily log ----
-  // What the weekly HSE report (HSE-FRM-00015) needs and the other tabs do not record: manpower per day (collection
+  // What the weekly HSE report needs and the other tabs do not record: manpower per day (collection
   // `manpower`, document id = the date) and entries in `dailyLog` (TBT, training, induction, meeting, tour, inspection,
   // drill, incident, other). Claude builds the weekly report from these and the other collections; the week is Saturday to Friday.
-  // dust: each water-spraying round (time, area, tanker trips, water), for the dust suppression register REG-017 and
-  // the water-usage records JLL asked for (letter 00282); waste: each load taken off site, with the manifest photo.
+  // dust: each water-spraying round (time, area, tanker trips, water), for the dust suppression register and
+  // the water-usage records the Engineer may ask for; waste: each load taken off site, with the manifest photo.
   var LOG_KINDS = ['tbt', 'training', 'induction', 'meeting', 'tour', 'inspection', 'drill', 'dust', 'waste', 'incident', 'achievement', 'other'];
   var LOG_FIELDS = {
     dust: ['time', 'location', 'qty', 'water', 'by'], waste: ['wasteType', 'qty', 'by', 'manifest'],
@@ -3862,16 +3863,16 @@ ul{list-style:none;margin:0;padding:0}
   }
 
   // ---- incidents and CAPA ----
-  // Incidents follow the project's Accident & Incident Investigation Procedure (AVK01-JLL-HSE-PRC-0001): notify the
+  // Incidents follow the project's Accident & Incident Investigation Procedure: notify the
   // consultant and the Engineer within 15 minutes, initial report within 24 hours, investigation report within 3 days
   // (WPS1-3) or 5 days (WPS4-5), counted in calendar days (user, 2026-10-15), and a safety alert for WPS4-5. Collection
   // `incidents`: site writes the report and witness statements; HSE sets the WPS, whether a formal report is needed
   // (else the event goes to the minor incident log only), the investigation and the closing; Claude issues the report
   // numbers and forms and sets `ini` / `invReport` / `alertAt`. Collection `capa`: corrective and preventive actions
-  // from every source, as in the CAPA register REG-011: open → done (with evidence) → verified (HSE), or reopened.
+  // from every source, as in the CAPA register: open → done (with evidence) → verified (HSE), or reopened.
   var INC_TYPES = ['nearmiss', 'fac', 'mtc', 'rwc', 'lti', 'ftl', 'damage', 'mvi', 'fire', 'env', 'illness', 'dangerous'];
   var INC_WPS = { nearmiss: 1, fac: 2, mtc: 3, rwc: 3, lti: 4, ftl: 5, damage: 2, mvi: 2, fire: 2, env: 2, illness: 3, dangerous: 4 };
-  // the weekly report's incident rows (HSE-FRM-00015 rows 20-29) have no RWC or dangerous-occurrence line
+  // the weekly report's incident rows (the weekly form's incident rows) have no RWC or dangerous-occurrence line
   var INC_WEEKLY = { nearmiss: 'nearmiss', fac: 'fac', mtc: 'mtc', rwc: 'mtc', lti: 'lti', ftl: 'ftl', damage: 'damage', mvi: 'mvi', fire: 'fire', env: 'env', illness: 'illness', dangerous: 'nearmiss' };
   var INC_FILTERS = ['open', 'late', 'closed', 'all'];
   var CAPA_SOURCES = ['incident', 'svn', 'ncr', 'sor', 'ltr', 'audit_internal', 'audit_pace', 'audit_jll', 'mgmt', 'observation', 'other'];

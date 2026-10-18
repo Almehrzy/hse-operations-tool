@@ -1,5 +1,5 @@
 # HSE Operations Tool. Copyright (c) 2026 Khaled Almehrzy. All rights reserved. Proprietary: see LICENSE.txt.
-"""Daily dust suppression log REG-017 from the daily log's water-spraying entries (kind "dust").
+"""Daily dust suppression register (project.json dust.register) from the daily log's water-spraying entries (kind "dust").
 
     python dust_register.py <export dir> --month YYYY-MM [--out rows.json]
 

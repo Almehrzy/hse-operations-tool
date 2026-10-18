@@ -1,6 +1,6 @@
 # HSE Operations Tool. Copyright (c) 2026 Khaled Almehrzy. All rights reserved. Proprietary: see LICENSE.txt.
-"""Reply to a letter from the Engineer (JLL), in the house format: the letter body in Word, sent through Aconex
-(Aconex adds the outgoing number and header). Template: templates/JLL reply template (from 00284).docx (Arial 10.5,
+"""Reply to a letter from the Engineer (PMC), in the house format: the letter body in Word, sent through the document
+control system (which adds the outgoing number and header). Template: project.json letters.template (Arial 10.5,
 footer page numbers).
 
     python letter_reply.py scaffold <letter.json> <reply.json>    start a reply from the letter in the tool
@@ -9,19 +9,19 @@ footer page numbers).
 
 reply.json:
 {
- "ref": "AVK01-WP.03-JLL-LTR-AH-SF-00296", "date": "2026-10-12", "received": "2026-10-12",
+ "ref": "XYZ01-P1-PMC-LTR-AB-SF-00296", "date": "2026-10-12", "received": "2026-10-12",
  "subject": "Implementation of Disaster Management Plan",
- "references": ["AVK01-WP.03-JLL-LTR-AH-MC-00200 – Implementation of Disaster Management Plan"],   (optional, more refs)
+ "references": ["XYZ01-P1-PMC-LTR-AB-MC-00200 – Implementation of Disaster Management Plan"],   (optional, more refs)
  "salutation": "Dear Sir,",                                                                          (optional)
  "opening": "...",                    optional; default: we acknowledge receipt of the Engineer's letter ref. … dated …
  "body": ["paragraph", {"bullets": ["...", "..."]}, {"numbered": ["...", "..."]}, ...],
  "table": {"intro": "...", "rows": [["what the letter asked", "status", "evidence / reference"]]},   (optional)
  "closing": "We trust this addresses the Engineer's concerns ...",
- "signatory": ["Elias Nassar", "Project Manager / Contractor's Representative"],                    (optional)
+ "signatory": ["<name>", "Project Manager / Contractor's Representative"],                         (optional)
  "enclosures": ["...", "..."],
  "photos": [{"file": "...", "caption": "Photo 1: ..."}]           Appendix A after the letter; added to the enclosures
 }
-It refuses to write when the text keeps placeholder text, names a JLL letter that is not this one or one of its
+It refuses to write when the text keeps placeholder text, names an Engineer's letter (letters.ref_pattern) that is not this one or one of its
 references, or points to a photo file that does not exist. No signature image is ever put in: the PM signs in Aconex.
 """
 import datetime as dt, io, json, os, re, sys, zipfile
@@ -29,9 +29,10 @@ from xml.sax.saxutils import escape
 from config import CFG, path as cfg_path
 import svn_reply as SR
 
-TEMPLATE = cfg_path(r"templates\JLL reply template (from 00284).docx")
+LC = CFG.get("letters", {})
+TEMPLATE = cfg_path(LC.get("template", r"templates\Letter reply template.docx"))
 RPR = '<w:rPr><w:rFonts w:ascii="Arial" w:eastAsia="Arial" w:hAnsi="Arial" w:cs="Arial"/>{b}<w:sz w:val="21"/><w:szCs w:val="21"/></w:rPr>'
-LTR_REF = re.compile(r"JLL-LTR-[A-Z]{2,4}-[A-Z]{2}-\d{5}")
+LTR_REF = re.compile(LC.get("ref_pattern", r"LTR-[A-Z0-9]+(?:-[A-Z0-9]+)*-\d{5}"))
 
 
 def long(s):
@@ -152,11 +153,11 @@ def make(req_json, out):
             P.append(para(req["table"]["intro"], keep=True))
         P.append(table(req["table"]["rows"]))
     P.append(para(req.get("closing", "We trust this addresses the Engineer's concerns.")))
-    sig = req.get("signatory") or [CFG["incidents"]["people"]["project_manager"][0], "Project Manager / Contractor's Representative"]
+    sig = req.get("signatory") or [CFG["incidents"]["people"]["project_manager"][0], LC.get("signatory_title", "Project Manager / Contractor's Representative")]
     P.append(para("Yours faithfully,", justify=False, after=600, keep=True))
     P.append(para(sig[0], bold=True, justify=False, after=0, keep=True))
     P.append(para(sig[1] if len(sig) > 1 else "", justify=False, after=0, keep=True))
-    P.append(para("Ahmadiah Contracting & Trading Co. (ACTC)", justify=False, after=200))
+    P.append(para(CFG.get("contractor_full", CFG["contractor"]), justify=False, after=200))
     enc = list(req.get("enclosures", []))
     if req.get("photos") and not any("Appendix A" in e for e in enc):
         enc.append("Appendix A – Site photographs")

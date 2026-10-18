@@ -7,6 +7,7 @@
  "hse_team": "WP.03 HSE Team",
  "meeting": {"title": "Monthly HSE Meeting", "orgs": "ACTC (Internal)", "frequency": "Twice in a week", "per_week": 2},
  "mass_tbt_min": 100,
+ "bullet_style": "JLLBullet1",
  "jll_letters": "D:\\Claude Projects\\Quick Access\\JLL Letter and reply",
  "_practice": "Learned from the Nov 2024 - Sep 2026 reports: 'Issues & Concerns' is left blank and consultant notices go in the letters table with JLL letters; captions name the activity without dates; the to-date line says 'safe man-hours'; one-off events and new facilities are their own bullets (daily-log kind 'achievement').",
  "phrases": {

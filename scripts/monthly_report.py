@@ -1,5 +1,5 @@
 # HSE Operations Tool. Copyright (c) 2026 Khaled Almehrzy. All rights reserved. Proprietary: see LICENSE.txt.
-"""Monthly HSE report (JLL template) from the tool's records. Setup in monthly.json.
+"""Monthly HSE report (the Engineer's template) from the tool's records. Setup in monthly.json.
 
     python monthly_report.py plan <export dir> --month YYYY-MM --weekly weekly.json [--letters letters.json] [--prev report.docx]   -> values.json (path in MONTHLY_VALUES or %TEMP%)
     python monthly_report.py make <values.json> <out.docx> [--photos-dir DIR]
@@ -19,6 +19,7 @@ import monthly_sources as MS
 import weekly_hse as W
 
 MJ = json.load(open(os.path.join(ROOT, "monthly.json"), encoding="utf-8"))
+BULLET = MJ.get("bullet_style", "ListBullet")     # the template's style for the achievement bullets
 MON = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"]   # as the house file names write them
 CLASS = {"nearmiss": "Near Miss", "fac": "First Aid Case", "mtc": "Medical Treatment Case", "lti": "Lost Time Injury", "ftl": "Fatality",
          "fire": "Fire Incident", "mvi": "Motor Vehicle Incident", "illness": "Occupational Illness", "env": "Environmental Incident", "damage": "Property Damage"}
@@ -117,7 +118,7 @@ def cmd_plan(export, *args):
     if drills:
         bullets.append(ph["drill"].format(topics=", ".join(sorted({d.get("topic", "") for d in drills if d.get("topic")}))))
     for p in re.findall(r"<w:p[ >](?:(?!</w:p>|<w:p[ >]).)*?</w:p>", x, flags=re.S):
-        if 'w:val="JLLBullet1"' in p and text_of(p).startswith("HSE Staff Ratio"):
+        if f'w:val="{BULLET}"' in p and text_of(p).startswith("HSE Staff Ratio"):
             bullets.append(text_of(p).strip())
             break
 
@@ -274,8 +275,8 @@ def cmd_make(values_json, out, *args):
             x = x[:c.start] + cell_text(x[c.start:c.end], v["date_dmy"]) + x[c.end:]
     notes.append("reference numbers kept as in the previous report (cover 'Ref.' and issue-sheet 'Document Number'); update them if your numbering changes monthly")
 
-    # achievements: the JLLBullet1 paragraphs become this month's bullets
-    bl = [m for m in re.finditer(r"<w:p[ >](?:(?!</w:p>|<w:p[ >]).)*?</w:p>", x, flags=re.S) if 'w:val="JLLBullet1"' in m.group(0)]
+    # achievements: the template's bullet-style paragraphs (monthly.json bullet_style) become this month's bullets
+    bl = [m for m in re.finditer(r"<w:p[ >](?:(?!</w:p>|<w:p[ >]).)*?</w:p>", x, flags=re.S) if f'w:val="{BULLET}"' in m.group(0)]
     if bl:
         p0 = bl[0].group(0)
         ppr = first(r"<w:pPr>.*?</w:pPr>", p0)
